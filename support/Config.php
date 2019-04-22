@@ -14,5 +14,5 @@
 	// Прочие настройки
 	define("ROOT_API_DIR", $_SERVER['DOCUMENT_ROOT']."/");
 	define("HACH_CODE", "SAmqhpihG8");
-	define("DEBUG", true);
+	define("DEBUG", false);
 ?>
