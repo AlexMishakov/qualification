@@ -103,7 +103,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMl-ux-elg">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Новости" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hQ-vV-0QM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Афиша" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hQ-vV-0QM">
                                                     <rect key="frame" x="16" y="8" width="343" height="41"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="41" id="rpA-UE-Nga"/>
@@ -176,7 +176,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Muz-hz-3y9"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Лента" image="Graphics - Tab Bar Icons - Gray - Today" id="YaH-v5-Crn"/>
+                    <tabBarItem key="tabBarItem" title="Лента" image="albums" id="YaH-v5-Crn"/>
                     <connections>
                         <outlet property="collectionNew" destination="LTj-hS-dlk" id="SZL-AT-K98"/>
                         <outlet property="statusViewBg" destination="BWY-Nv-Ust" id="clg-lO-IFv"/>
@@ -188,7 +188,23 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1QR-9B-yOJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-253.59999999999999" y="-316.19190404797604"/>
+            <point key="canvasLocation" x="-254" y="-1021"/>
+        </scene>
+        <!--Календарь-->
+        <scene sceneID="9zr-X2-Ef5">
+            <objects>
+                <viewController id="7ym-HH-ShT" customClass="CalendarViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ML1-8b-jLs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="0vG-nc-atb"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Календарь" image="Graphics - Tab Bar Icons - Gray - Today" id="eRf-Rt-y01"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FFn-h5-we0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-255" y="-332"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0eI-gc-fcC">
@@ -203,6 +219,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="miT-9t-wDX" kind="relationship" relationship="viewControllers" id="AnS-JT-5Qx"/>
+                        <segue destination="7ym-HH-ShT" kind="relationship" relationship="viewControllers" id="bP5-Ta-1Go"/>
                         <segue destination="FZi-YR-x97" kind="relationship" relationship="viewControllers" id="rBN-k1-bgw"/>
                         <segue destination="wRs-HT-hd3" kind="relationship" relationship="viewControllers" id="qqh-Fq-1TR"/>
                         <segue destination="GP7-Cu-dcF" kind="relationship" relationship="viewControllers" id="CDi-q0-hGo"/>
@@ -236,6 +253,7 @@
         <image name="Graphics - Tab Bar Icons - Gray - Today" width="30" height="26"/>
         <image name="Search Icon" width="21" height="22"/>
         <image name="Userpic Icon" width="22.5" height="24"/>
+        <image name="albums" width="30" height="30"/>
         <image name="tag" width="21" height="22"/>
     </resources>
     <color key="tintColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
