@@ -80,16 +80,6 @@
                                         <constraint firstAttribute="bottom" secondItem="y12-lL-hHG" secondAttribute="bottom" id="u4m-Ih-Clx"/>
                                     </constraints>
                                 </view>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="4kz-e8-t0d">
-                                        <rect key="frame" x="0.0" y="250" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4kz-e8-t0d" id="FuQ-uX-Knl">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="miT-9t-wDX" id="UMG-g9-wjL"/>
                                     <outlet property="delegate" destination="miT-9t-wDX" id="F3v-7M-jXg"/>

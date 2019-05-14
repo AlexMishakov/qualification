@@ -31,16 +31,12 @@
 
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.viewSectionTopRadius.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(30, 30)];
-    
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
     maskLayer.frame = self.viewSectionTopRadius.bounds;
     maskLayer.path  = maskPath.CGPath;
-    
     self.viewSectionTopRadius.layer.mask = maskLayer;
     
-    self.table.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     tabelHeaderViewHeight = self.tabelHeaderView.frame.size.height;
-    
     self.statusViewBg.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
     self.tabelHeaderViewContent.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
     self.tabelHeaderView.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
