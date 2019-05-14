@@ -8,6 +8,7 @@
 
 #import "MainViewController.h"
 #import "MainTableViewCell.h"
+#import "MainCollectionViewCell.h"
 
 @interface MainViewController ()
 {
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIView *statusViewBg;
 @property (weak, nonatomic) IBOutlet UIView *tabelHeaderView;
 @property (weak, nonatomic) IBOutlet UIView *tabelHeaderViewContent;
+@property (weak, nonatomic) IBOutlet UICollectionView *collectionNew;
 
 @end
 
@@ -28,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.viewSectionTopRadius.bounds byRoundingCorners:(UIRectCornerTopLeft | UIRectCornerTopRight) cornerRadii:CGSizeMake(30, 30)];
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
@@ -40,7 +41,15 @@
     self.statusViewBg.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
     self.tabelHeaderViewContent.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
     self.tabelHeaderView.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
+    
+    self.collectionNew.pagingEnabled = NO;
+    self.collectionNew.showsVerticalScrollIndicator = false;
+    self.collectionNew.showsHorizontalScrollIndicator = false;
+    self.collectionNew.delaysContentTouches = false;
+    [self.collectionNew registerNib:[UINib nibWithNibName:@"MainCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MainCollectionViewCell"];
 }
+
+// MARK: TableView
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView;
 {
@@ -117,6 +126,27 @@
         self.statusViewBg.backgroundColor = bg;
         self->sectionSeparator.alpha = sAlpha;
     }];
+}
+
+// MARK: CollectionView
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 5;
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MainCollectionViewCell" forIndexPath:indexPath];
+    
+    
+    
+    return cell;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return CGSizeMake(self.view.frame.size.width-32-50, 150);
 }
 
 @end

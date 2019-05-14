@@ -17,8 +17,8 @@
     self.contentShadow.layer.masksToBounds = NO;
     self.contentShadow.layer.cornerRadius = 10;
     self.contentShadow.layer.shadowOffset = CGSizeMake(0, 5);
-    self.contentShadow.layer.shadowRadius = 8;
-    self.contentShadow.layer.shadowOpacity = 0.15;
+    self.contentShadow.layer.shadowRadius = 9;
+    self.contentShadow.layer.shadowOpacity = 0.12;
     
     self.content.layer.masksToBounds = YES;
     self.content.layer.cornerRadius = 10;
