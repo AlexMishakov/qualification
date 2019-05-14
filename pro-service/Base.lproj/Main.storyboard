@@ -13,18 +13,38 @@
         <!--Категории-->
         <scene sceneID="X9V-zP-Oog">
             <objects>
-                <viewController id="dAT-47-Dxf" sceneMemberID="viewController">
+                <viewController id="dAT-47-Dxf" customClass="CategoryViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1CZ-u2-Ymv">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="r7T-We-Ke8">
+                                <rect key="frame" x="0.0" y="116" width="375" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="dAT-47-Dxf" id="dWC-hm-LEj"/>
+                                    <outlet property="delegate" destination="dAT-47-Dxf" id="gso-94-RAY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="r7T-We-Ke8" firstAttribute="top" secondItem="CMx-so-g6y" secondAttribute="top" id="8cS-WJ-JTz"/>
+                            <constraint firstItem="r7T-We-Ke8" firstAttribute="bottom" secondItem="CMx-so-g6y" secondAttribute="bottom" id="Qpj-Jt-c7Z"/>
+                            <constraint firstItem="r7T-We-Ke8" firstAttribute="leading" secondItem="CMx-so-g6y" secondAttribute="leading" id="lqw-nM-KWW"/>
+                            <constraint firstItem="r7T-We-Ke8" firstAttribute="trailing" secondItem="CMx-so-g6y" secondAttribute="trailing" id="qYP-SH-npu"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="CMx-so-g6y"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Категории" image="tag" id="DVd-v9-qzU"/>
+                    <navigationItem key="navigationItem" title="Категории" id="9Zz-Vr-w9S"/>
+                    <connections>
+                        <outlet property="tableView" destination="r7T-We-Ke8" id="397-rm-a53"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9Y-4Z-Boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-253" y="348"/>
+            <point key="canvasLocation" x="685.60000000000002" y="347.67616191904051"/>
         </scene>
         <!--Поиск-->
         <scene sceneID="kP2-P1-gtp">
@@ -183,7 +203,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="miT-9t-wDX" kind="relationship" relationship="viewControllers" id="AnS-JT-5Qx"/>
-                        <segue destination="dAT-47-Dxf" kind="relationship" relationship="viewControllers" id="rBN-k1-bgw"/>
+                        <segue destination="FZi-YR-x97" kind="relationship" relationship="viewControllers" id="rBN-k1-bgw"/>
                         <segue destination="wRs-HT-hd3" kind="relationship" relationship="viewControllers" id="qqh-Fq-1TR"/>
                         <segue destination="GP7-Cu-dcF" kind="relationship" relationship="viewControllers" id="CDi-q0-hGo"/>
                     </connections>
@@ -191,6 +211,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEJ-fp-fUu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1206" y="16"/>
+        </scene>
+        <!--Категории-->
+        <scene sceneID="55i-GE-I4t">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FZi-YR-x97" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Категории" image="tag" id="DVd-v9-qzU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Rnr-FN-LXG">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dAT-47-Dxf" kind="relationship" relationship="rootViewController" id="RTl-sI-fyW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="f55-VQ-uhN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-253.59999999999999" y="347.67616191904051"/>
         </scene>
     </scenes>
     <resources>
