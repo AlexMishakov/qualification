@@ -44,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FA67DB1C228CC365001E5655 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		FA67DB1E228CC472001E5655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FA74F4A7228B208200DDF9E4 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
 		FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
 		FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -101,6 +103,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA67DB1D228CC376001E5655 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				FA67DB1E228CC472001E5655 /* PrefixHeader.pch */,
+				FA67DB1C228CC365001E5655 /* Defines.h */,
+				FA98C373228A33C8002D49AF /* Info.plist */,
+				FA98C374228A33C8002D49AF /* main.m */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
 		FA74F4AC228B25ED00DDF9E4 /* MainCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,11 +219,10 @@
 				FA74F4AE228B25FE00DDF9E4 /* View */,
 				FA74F4AF228B260500DDF9E4 /* Controller */,
 				FA98C36B228A33C6002D49AF /* Main.storyboard */,
+				FA98C370228A33C8002D49AF /* LaunchScreen.storyboard */,
 				FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */,
 				FA98C36E228A33C8002D49AF /* Assets.xcassets */,
-				FA98C370228A33C8002D49AF /* LaunchScreen.storyboard */,
-				FA98C373228A33C8002D49AF /* Info.plist */,
-				FA98C374228A33C8002D49AF /* main.m */,
+				FA67DB1D228CC376001E5655 /* Supporting */,
 			);
 			path = "pro-service";
 			sourceTree = "<group>";
@@ -547,7 +559,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF5Y2R3TMJ;
-				INFOPLIST_FILE = "pro-service/Info.plist";
+				GCC_PREFIX_HEADER = "pro-service/Supporting/PrefixHeader.pch";
+				INFOPLIST_FILE = "pro-service/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -564,7 +577,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NF5Y2R3TMJ;
-				INFOPLIST_FILE = "pro-service/Info.plist";
+				GCC_PREFIX_HEADER = "pro-service/Supporting/PrefixHeader.pch";
+				INFOPLIST_FILE = "pro-service/Supporting/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

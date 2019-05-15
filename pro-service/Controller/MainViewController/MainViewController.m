@@ -38,9 +38,9 @@
     self.viewSectionTopRadius.layer.mask = maskLayer;
     
     tabelHeaderViewHeight = self.tabelHeaderView.frame.size.height;
-    self.statusViewBg.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
-    self.tabelHeaderViewContent.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
-    self.tabelHeaderView.backgroundColor = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
+    self.statusViewBg.backgroundColor = COLOR_MAIN;
+    self.tabelHeaderViewContent.backgroundColor = COLOR_MAIN;
+    self.tabelHeaderView.backgroundColor = COLOR_MAIN;
     
     self.collectionNew.pagingEnabled = NO;
     self.collectionNew.showsVerticalScrollIndicator = false;
@@ -114,7 +114,7 @@
     
     [self.tabelHeaderViewContent setFrame:newFrame];
     
-    UIColor *bg = [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00];
+    UIColor *bg = COLOR_MAIN;
     int sAlpha = 0;
     if (scrollView.contentOffset.y > self.tabelHeaderView.frame.size.height-5)
     {
