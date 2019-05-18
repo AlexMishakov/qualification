@@ -10,12 +10,12 @@
 		35943836CF0B4AF2F6E43797 /* Pods_pro_serviceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C08B0D6D9C3740DDE349E1 /* Pods_pro_serviceUITests.framework */; };
 		D93C58F3689579B7FE9CB614 /* Pods_pro_serviceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B80F5FFAE6482A713F6A7C /* Pods_pro_serviceTests.framework */; };
 		DCFCBCA1034496A1F4653AD3 /* Pods_pro_service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5C5A81DBD109C41DCBDDD4 /* Pods_pro_service.framework */; };
+		FA67DB21228CC9FE001E5655 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA67DB20228CC9FE001E5655 /* CalendarViewController.m */; };
 		FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */; };
 		FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */; };
 		FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B2228B263B00DDF9E4 /* CategoryViewController.m */; };
 		FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B6228B274200DDF9E4 /* CategoryTableViewCell.m */; };
 		FA74F4B9228B274200DDF9E4 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */; };
-		FA74F4C0228B30D300DDF9E4 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4BF228B30D300DDF9E4 /* CalendarViewController.m */; };
 		FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98C366228A33C6002D49AF /* AppDelegate.m */; };
 		FA98C36D228A33C6002D49AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA98C36B228A33C6002D49AF /* Main.storyboard */; };
 		FA98C36F228A33C8002D49AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA98C36E228A33C8002D49AF /* Assets.xcassets */; };
@@ -58,6 +58,8 @@
 		EB6D1A5980287675EC91E918 /* Pods-pro-service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pro-service.release.xcconfig"; path = "Pods/Target Support Files/Pods-pro-service/Pods-pro-service.release.xcconfig"; sourceTree = "<group>"; };
 		FA67DB1C228CC365001E5655 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		FA67DB1E228CC472001E5655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FA67DB1F228CC9FE001E5655 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		FA67DB20228CC9FE001E5655 /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		FA74F4A7228B208200DDF9E4 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
 		FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainCollectionViewCell.m; sourceTree = "<group>"; };
 		FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -66,8 +68,6 @@
 		FA74F4B5228B274200DDF9E4 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
 		FA74F4B6228B274200DDF9E4 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
 		FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
-		FA74F4BE228B30D300DDF9E4 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
-		FA74F4BF228B30D300DDF9E4 /* CalendarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		FA98C362228A33C6002D49AF /* pro-service.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pro-service.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA98C365228A33C6002D49AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA98C366228A33C6002D49AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -139,6 +139,16 @@
 			path = Supporting;
 			sourceTree = "<group>";
 		};
+		FA67DB22228CCA02001E5655 /* CalendarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA67DB1F228CC9FE001E5655 /* CalendarViewController.h */,
+				FA67DB20228CC9FE001E5655 /* CalendarViewController.m */,
+			);
+			name = CalendarViewController;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		FA74F4AC228B25ED00DDF9E4 /* MainCollectionViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -174,7 +184,7 @@
 			children = (
 				FA74F4B0228B261200DDF9E4 /* MainViewController */,
 				FA74F4B4228B263F00DDF9E4 /* CategoryViewController */,
-				FA74F4C1228B30D700DDF9E4 /* CalendarViewController */,
+				FA67DB22228CCA02001E5655 /* CalendarViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,15 +215,6 @@
 				FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */,
 			);
 			path = CategoryTableViewCell;
-			sourceTree = "<group>";
-		};
-		FA74F4C1228B30D700DDF9E4 /* CalendarViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FA74F4BE228B30D300DDF9E4 /* CalendarViewController.h */,
-				FA74F4BF228B30D300DDF9E4 /* CalendarViewController.m */,
-			);
-			path = CalendarViewController;
 			sourceTree = "<group>";
 		};
 		FA98C359228A33C6002D49AF = {
@@ -499,10 +500,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA98C375228A33C8002D49AF /* main.m in Sources */,
+				FA67DB21228CC9FE001E5655 /* CalendarViewController.m in Sources */,
 				FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */,
 				FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
-				FA74F4C0228B30D300DDF9E4 /* CalendarViewController.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
 				FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */,
 				FA98C399228A3436002D49AF /* MainViewController.m in Sources */,

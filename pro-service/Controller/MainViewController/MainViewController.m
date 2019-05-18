@@ -97,7 +97,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    NSLog(@"scrollView: %f", scrollView.contentOffset.y);
+    DLog(@"scrollView: %f", scrollView.contentOffset.y);
     
     CGRect newFrame = self.tabelHeaderViewContent.frame;
     
