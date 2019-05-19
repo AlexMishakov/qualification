@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *table;
 @property (weak, nonatomic) IBOutlet UIView *statusViewBg;
 @property (weak, nonatomic) IBOutlet UIView *tabelHeaderView;
+@property (strong, nonatomic) UILabel *tabelHeaderLabel;
 @property (weak, nonatomic) IBOutlet UIView *tabelHeaderViewContent;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionNew;
 
@@ -81,15 +82,15 @@
     UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
     view.backgroundColor = [UIColor whiteColor];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, width-32, 41)];
-    [label setFont:[UIFont systemFontOfSize:34 weight:UIFontWeightBold]];
-    [label setText:@"Сегодня"];
+    self.tabelHeaderLabel = [[UILabel alloc] initWithFrame:CGRectMake(16, 0, width-32, 41)];
+    [self.tabelHeaderLabel setFont:[UIFont systemFontOfSize:34 weight:UIFontWeightBold]];
+    [self.tabelHeaderLabel setText:@"Сегодня"];
     
     sectionSeparator = [[UIView alloc] initWithFrame:CGRectMake(0, 50, width, 0.5)];
     sectionSeparator.backgroundColor = [UIColor lightGrayColor];
     sectionSeparator.alpha = 0;
     
-    [view addSubview:label];
+    [view addSubview:self.tabelHeaderLabel];
     [view addSubview:sectionSeparator];
     
     return view;
@@ -101,10 +102,16 @@
     
     CGRect newFrame = self.tabelHeaderViewContent.frame;
     
+    CGAffineTransform totalTransform = CGAffineTransformMakeTranslation(0, 0);
     if (scrollView.contentOffset.y < 0)
     {
         newFrame.size.height = tabelHeaderViewHeight-scrollView.contentOffset.y-self.viewSectionTopRadius.frame.size.height;
         newFrame.origin.y = scrollView.contentOffset.y;
+        
+        CGFloat scale = 1-scrollView.contentOffset.y/2000;
+        CGFloat scale2 = 1-scrollView.contentOffset.y/11.5;
+        totalTransform = CGAffineTransformTranslate(totalTransform, scale2, 0);
+        totalTransform = CGAffineTransformScale(totalTransform, scale, scale);
     }
     else
     {
@@ -112,6 +119,7 @@
         newFrame.origin.y = 0;
     }
     
+    self.tabelHeaderLabel.transform = totalTransform;
     [self.tabelHeaderViewContent setFrame:newFrame];
     
     UIColor *bg = COLOR_MAIN;

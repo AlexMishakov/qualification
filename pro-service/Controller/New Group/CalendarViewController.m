@@ -10,6 +10,9 @@
 #import "FSCalendar.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance>
+{
+    CGFloat navHeight;
+}
 
 @property (weak, nonatomic) IBOutlet FSCalendar *calendar;
 
@@ -17,6 +20,7 @@
 @property (strong, nonatomic) NSDateFormatter *dateFormatter;
 @property (strong, nonatomic) NSDate *minimumDate;
 @property (strong, nonatomic) NSDate *maximumDate;
+@property (weak, nonatomic) IBOutlet UIView *header;
 
 
 @end
@@ -53,6 +57,11 @@
     
     self.minimumDate = [NSDate date];
     self.maximumDate = [self.dateFormatter dateFromString:@"2021-04-10"];
+    
+    [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    
+    navHeight = self.navigationController.navigationBar.frame.size.height;
+    [self headerScroll];
 }
 
 // MARK: FSCalendarDataSource
@@ -81,6 +90,26 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     DLog(@"scrollView: %f", scrollView.contentOffset.y);
+}
+
+// ???: Костыль, но работает
+- (void)headerScroll
+{
+//    DLog(@"size: %f", self.navigationController.navigationBar.frame.size.height);
+    
+    CGRect frame = self.header.frame;
+    frame.origin.y = 0;
+    
+    if (self.navigationController.navigationBar.frame.size.height > navHeight)
+    {
+        frame.origin.y = self.navigationController.navigationBar.frame.size.height-navHeight;
+    }
+    
+    self.header.frame = frame;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self headerScroll];
+    });
 }
 
 @end

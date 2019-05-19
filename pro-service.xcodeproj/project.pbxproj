@@ -10,6 +10,9 @@
 		35943836CF0B4AF2F6E43797 /* Pods_pro_serviceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05C08B0D6D9C3740DDE349E1 /* Pods_pro_serviceUITests.framework */; };
 		D93C58F3689579B7FE9CB614 /* Pods_pro_serviceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64B80F5FFAE6482A713F6A7C /* Pods_pro_serviceTests.framework */; };
 		DCFCBCA1034496A1F4653AD3 /* Pods_pro_service.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B5C5A81DBD109C41DCBDDD4 /* Pods_pro_service.framework */; };
+		FA2D946C2290C7EB0011D063 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2D946B2290C7EB0011D063 /* SearchViewController.m */; };
+		FA2D94B42290F8020011D063 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2D94B22290F8020011D063 /* SearchTableViewCell.m */; };
+		FA2D94B52290F8020011D063 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2D94B32290F8020011D063 /* SearchTableViewCell.xib */; };
 		FA67DB21228CC9FE001E5655 /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA67DB20228CC9FE001E5655 /* CalendarViewController.m */; };
 		FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */; };
 		FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */; };
@@ -56,6 +59,13 @@
 		6F38EFE0F9BF2B4313AC1B09 /* Pods-pro-serviceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pro-serviceTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-pro-serviceTests/Pods-pro-serviceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B147E7AD79F38B84EEFFC47D /* Pods-pro-serviceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pro-serviceTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-pro-serviceTests/Pods-pro-serviceTests.release.xcconfig"; sourceTree = "<group>"; };
 		EB6D1A5980287675EC91E918 /* Pods-pro-service.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pro-service.release.xcconfig"; path = "Pods/Target Support Files/Pods-pro-service/Pods-pro-service.release.xcconfig"; sourceTree = "<group>"; };
+		FA2D946A2290C7EB0011D063 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
+		FA2D946B2290C7EB0011D063 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
+		FA2D946E2290C89A0011D063 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		FA2D946F2290C89A0011D063 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		FA2D94B12290F8020011D063 /* SearchTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchTableViewCell.h; sourceTree = "<group>"; };
+		FA2D94B22290F8020011D063 /* SearchTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchTableViewCell.m; sourceTree = "<group>"; };
+		FA2D94B32290F8020011D063 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		FA67DB1C228CC365001E5655 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		FA67DB1E228CC472001E5655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FA67DB1F228CC9FE001E5655 /* CalendarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
@@ -128,6 +138,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FA2D946D2290C7EE0011D063 /* SearchViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D946A2290C7EB0011D063 /* SearchViewController.h */,
+				FA2D946B2290C7EB0011D063 /* SearchViewController.m */,
+			);
+			path = SearchViewController;
+			sourceTree = "<group>";
+		};
+		FA2D94B62290F8040011D063 /* SearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA2D94B12290F8020011D063 /* SearchTableViewCell.h */,
+				FA2D94B22290F8020011D063 /* SearchTableViewCell.m */,
+				FA2D94B32290F8020011D063 /* SearchTableViewCell.xib */,
+			);
+			path = SearchTableViewCell;
+			sourceTree = "<group>";
+		};
 		FA67DB1D228CC376001E5655 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +204,7 @@
 				FA74F4AC228B25ED00DDF9E4 /* MainCollectionViewCell */,
 				FA74F4AD228B25F900DDF9E4 /* MainTableViewCell */,
 				FA74F4BA228B274500DDF9E4 /* CategoryTableViewCell */,
+				FA2D94B62290F8040011D063 /* SearchTableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -183,8 +213,9 @@
 			isa = PBXGroup;
 			children = (
 				FA74F4B0228B261200DDF9E4 /* MainViewController */,
-				FA74F4B4228B263F00DDF9E4 /* CategoryViewController */,
 				FA67DB22228CCA02001E5655 /* CalendarViewController */,
+				FA74F4B4228B263F00DDF9E4 /* CategoryViewController */,
+				FA2D946D2290C7EE0011D063 /* SearchViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -394,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */,
+				FA2D94B52290F8020011D063 /* SearchTableViewCell.xib in Resources */,
 				FA74F4B9228B274200DDF9E4 /* CategoryTableViewCell.xib in Resources */,
 				FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */,
 				FA98C372228A33C8002D49AF /* LaunchScreen.storyboard in Resources */,
@@ -503,10 +535,12 @@
 				FA67DB21228CC9FE001E5655 /* CalendarViewController.m in Sources */,
 				FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */,
 				FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */,
+				FA2D946C2290C7EB0011D063 /* SearchViewController.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
 				FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */,
 				FA98C399228A3436002D49AF /* MainViewController.m in Sources */,
+				FA2D94B42290F8020011D063 /* SearchTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +580,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA98C36C228A33C6002D49AF /* Base */,
+				FA2D946E2290C89A0011D063 /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -554,6 +589,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA98C371228A33C8002D49AF /* Base */,
+				FA2D946F2290C89A0011D063 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -565,6 +601,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -624,6 +661,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -682,7 +720,7 @@
 				DEVELOPMENT_TEAM = NF5Y2R3TMJ;
 				GCC_PREFIX_HEADER = "pro-service/Supporting/PrefixHeader.pch";
 				INFOPLIST_FILE = "pro-service/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,7 +740,7 @@
 				DEVELOPMENT_TEAM = NF5Y2R3TMJ;
 				GCC_PREFIX_HEADER = "pro-service/Supporting/PrefixHeader.pch";
 				INFOPLIST_FILE = "pro-service/Supporting/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

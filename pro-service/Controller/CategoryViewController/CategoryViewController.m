@@ -35,6 +35,8 @@
                       ];
     
     self.tableView.tableFooterView = [UIView new];
+    
+    [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
