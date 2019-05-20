@@ -1,11 +1,12 @@
 project 'pro-service.xcodeproj'
 
-platform :ios, '9.0'
+platform :ios, '10.0'
 use_frameworks!
 
 target 'pro-service' do
   
   pod 'FSCalendar+Persian'
+  pod 'SPStorkController'
   
   target 'pro-serviceTests' do
     inherit! :search_paths

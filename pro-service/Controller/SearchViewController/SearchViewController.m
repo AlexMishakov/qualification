@@ -8,6 +8,8 @@
 
 #import "SearchViewController.h"
 #import "SearchTableViewCell.h"
+#import "DateViewController.h"
+@import SPStorkController;
 
 @interface SearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 {
@@ -99,6 +101,25 @@
     cell.titleLabel.text = cellArray[indexPath.row];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0)
+    {
+        
+    }
+    else if (indexPath.row == 1)
+    {
+        DateViewController *modal = [[DateViewController alloc] init];
+        SPStorkTransitioningDelegate *transitionDelegate = [[SPStorkTransitioningDelegate alloc] init];
+        
+        modal.transitioningDelegate = transitionDelegate;
+        modal.modalPresentationStyle = UIModalPresentationCustom;
+        [self presentViewController:modal animated:true completion:nil];
+    }
 }
 
 @end

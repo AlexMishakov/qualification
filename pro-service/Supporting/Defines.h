@@ -22,3 +22,4 @@
 
 // MARK: Colors
 #define COLOR_MAIN [UIColor colorWithRed:1.000 green:0.388 blue:0.388 alpha:1.00]
+#define COLOR_LIGHT_MAIN [UIColor colorWithRed:1.000 green:0.882 blue:0.882 alpha:1.00]

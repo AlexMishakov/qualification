@@ -491,10 +491,12 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-pro-service/Pods-pro-service-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FSCalendar+Persian/FSCalendar_Persian.framework",
+				"${BUILT_PRODUCTS_DIR}/SPStorkController/SPStorkController.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCalendar_Persian.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPStorkController.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
