@@ -8,8 +8,10 @@
 
 #import "SearchViewController.h"
 #import "SearchTableViewCell.h"
-#import "DateViewController.h"
 @import SPStorkController;
+
+#import "SearchCategoryViewController.h"
+#import "DateViewController.h"
 
 @interface SearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 {
@@ -109,7 +111,12 @@
     
     if (indexPath.row == 0)
     {
+        SearchCategoryViewController *modal = [[SearchCategoryViewController alloc] init];
+        SPStorkTransitioningDelegate *transitionDelegate = [[SPStorkTransitioningDelegate alloc] init];
         
+        modal.transitioningDelegate = transitionDelegate;
+        modal.modalPresentationStyle = UIModalPresentationCustom;
+        [self presentViewController:modal animated:true completion:nil];
     }
     else if (indexPath.row == 1)
     {
@@ -119,6 +126,19 @@
         modal.transitioningDelegate = transitionDelegate;
         modal.modalPresentationStyle = UIModalPresentationCustom;
         [self presentViewController:modal animated:true completion:nil];
+    }
+    else if (indexPath.row == 2)
+    {
+        SearchTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+        if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+        {
+            cell.accessoryType = UITableViewCellAccessoryNone;
+        }
+        else
+        {
+            cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        }
     }
 }
 

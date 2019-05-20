@@ -31,6 +31,7 @@
 		FA98C39E228A4C1C002D49AF /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98C39C228A4C1C002D49AF /* MainTableViewCell.xib */; };
 		FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */ = {isa = PBXBuildFile; fileRef = FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */; };
 		FAEBC3DA2293084400A4D033 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3D92293084400A4D033 /* DateViewController.m */; };
+		FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = V1Lod920Km4.png; path = ../../../../../Desktop/V1Lod920Km4.png; sourceTree = "<group>"; };
 		FAEBC3D82293084400A4D033 /* DateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
 		FAEBC3D92293084400A4D033 /* DateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
+		FAEBC3DC2293649400A4D033 /* SearchCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryViewController.h; sourceTree = "<group>"; };
+		FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,7 @@
 			children = (
 				FA2D946A2290C7EB0011D063 /* SearchViewController.h */,
 				FA2D946B2290C7EB0011D063 /* SearchViewController.m */,
+				FAEBC3DF2293649900A4D033 /* SearchCategoryViewController */,
 				FAEBC3DB2293084700A4D033 /* DateViewController */,
 			);
 			path = SearchViewController;
@@ -315,6 +319,15 @@
 				FAEBC3D92293084400A4D033 /* DateViewController.m */,
 			);
 			path = DateViewController;
+			sourceTree = "<group>";
+		};
+		FAEBC3DF2293649900A4D033 /* SearchCategoryViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FAEBC3DC2293649400A4D033 /* SearchCategoryViewController.h */,
+				FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */,
+			);
+			path = SearchCategoryViewController;
 			sourceTree = "<group>";
 		};
 		FF9BBBB72CD18273CAABDF6F /* Pods */ = {
@@ -554,6 +567,7 @@
 				FA2D946C2290C7EB0011D063 /* SearchViewController.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
+				FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */,
 				FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */,
 				FA98C399228A3436002D49AF /* MainViewController.m in Sources */,
 				FA2D94B42290F8020011D063 /* SearchTableViewCell.m in Sources */,

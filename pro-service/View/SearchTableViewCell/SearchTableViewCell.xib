@@ -33,6 +33,7 @@
                     <constraint firstItem="X8T-cl-HEs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gfm-Os-s4t"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="tintColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
                 <outlet property="titleLabel" destination="X8T-cl-HEs" id="uaC-Bu-d4J"/>
