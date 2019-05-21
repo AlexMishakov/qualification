@@ -8,10 +8,12 @@
 
 #import "CalendarViewController.h"
 #import "FSCalendar.h"
+#import "Calendar.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance>
 {
     CGFloat navHeight;
+    Calendar *calendarModel;
 }
 
 @property (weak, nonatomic) IBOutlet FSCalendar *calendar;
@@ -31,6 +33,9 @@
 {
     [super viewDidLoad];
     
+    calendarModel = [[Calendar alloc] init];
+    [calendarModel loadAllDay];
+    
     self.calendar.backgroundColor = [UIColor whiteColor];
     self.calendar.dataSource = self;
     self.calendar.delegate = self;
@@ -48,6 +53,7 @@
     self.calendar.appearance.titleSelectionColor = [UIColor blackColor];
     self.calendar.appearance.todayColor = COLOR_MAIN;
     self.calendar.appearance.headerDateFormat = @"MMMM yyyy";
+    self.calendar.appearance.eventDefaultColor = COLOR_MAIN;
     
     
     self.gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
@@ -56,7 +62,7 @@
     self.dateFormatter.dateFormat = @"yyyy-MM-dd";
     
     self.minimumDate = [NSDate date];
-    self.maximumDate = [self.dateFormatter dateFromString:@"2021-04-10"];
+    self.maximumDate = [self.dateFormatter dateFromString:calendarModel.allDay[calendarModel.allDay.count-1]];
     
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
     
@@ -90,6 +96,17 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     DLog(@"scrollView: %f", scrollView.contentOffset.y);
+}
+
+- (NSInteger)calendar:(FSCalendar *)calendar numberOfEventsForDate:(NSDate *)date
+{
+    NSString *dateString = [self.dateFormatter stringFromDate:date];
+    if ([calendarModel.allDay containsObject:dateString])
+    {
+        return 1;
+    }
+    
+    return 0;
 }
 
 // ???: Костыль, но работает

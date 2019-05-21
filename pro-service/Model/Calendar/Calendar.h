@@ -13,8 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 @interface Calendar : NSObject
 
 @property (nonatomic) NSArray *today;
+@property (nonatomic) NSArray *allDay;
 
 - (void)loadToday;
+- (void)loadAllDay;
 
 @end
 

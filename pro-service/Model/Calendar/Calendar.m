@@ -59,4 +59,30 @@
     }
 }
 
+- (void)loadAllDay
+{
+    NSString *StrUrl = @"/event.getAllDate";
+    StrUrl = [DOMEN stringByAppendingString: StrUrl];
+    DLog(@"StrUrl: %@", StrUrl);
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];
+    NSError *error = nil;
+    NSDictionary *dictionary = nil;
+    
+    if (data != nil)
+    {
+        dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    }
+    
+    if ([dictionary[@"error"] intValue] == 910 && dictionary != nil)
+    {
+        DLog(@"events: %@", dictionary[@"events"]);
+        self.allDay = dictionary[@"events"];
+        
+    }
+    else
+    {
+        self.allDay = [[NSArray alloc] init];
+    }
+}
+
 @end
