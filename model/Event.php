@@ -56,7 +56,7 @@
 			if (mysqli_num_rows($result) > 0)
 			{
 				while($row = mysqli_fetch_assoc($result))
-				{					
+				{
 					array_push($ArrayEvents, $row);
 				}
 				
@@ -73,6 +73,45 @@
 				if (DEBUG) $Array['error_debug'] = $sql."\n".mysqli_error($this->conn);
 			}
 			
+			
+			return $Array;
+		}
+		
+		public function getAllDate($req) {
+			$Array = array();
+			$ArrayEventsDate = array();
+			$dateToday = date('Y-m-d H:i:s');
+			
+			$sql = "SELECT
+						create_event_event.created_date
+					FROM
+						create_event_event
+					WHERE
+						create_event_event.created_date > '$dateToday'
+					ORDER BY create_event_event.created_date";
+			$result = mysqli_query($this->conn, $sql);
+			
+			if (mysqli_num_rows($result) > 0)
+			{
+				while($row = mysqli_fetch_assoc($result))
+				{
+					$date = date_create($row['created_date']);
+					$dateString = date_format($date, 'Y-m-d');
+					
+					if (!in_array($dateString, $ArrayEventsDate))
+					{
+						array_push($ArrayEventsDate, date_format($date, 'Y-m-d'));
+					}
+				}
+				
+				$Array['events'] = $ArrayEventsDate;
+				$Array['error'] = "910";
+			}
+			else
+			{
+				$Array['error'] = "900";
+				if (DEBUG) $Array['error_debug'] = $sql."\n".mysqli_error($this->conn);
+			}
 			
 			return $Array;
 		}
