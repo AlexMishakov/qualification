@@ -89,11 +89,11 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="ecj-VB-Cf5"/>
             <connections>
+                <outlet property="catagoryLabel" destination="hb6-3s-r9Y" id="Ar5-ex-sdo"/>
                 <outlet property="content" destination="P7M-1H-uQd" id="p9o-Yo-N1a"/>
                 <outlet property="contentShadow" destination="zUh-w8-h9Z" id="489-Dd-uFX"/>
                 <outlet property="dateLabel" destination="7H3-M6-sKc" id="qnR-BY-ghI"/>
                 <outlet property="image" destination="CDR-44-5Ay" id="izC-8i-wd3"/>
-                <outlet property="tagLabel" destination="hb6-3s-r9Y" id="cJb-Hg-nVx"/>
                 <outlet property="titleLabel" destination="NYm-jQ-Ybx" id="CBJ-Zc-O9G"/>
             </connections>
             <point key="canvasLocation" x="705.60000000000002" y="178.56071964017991"/>

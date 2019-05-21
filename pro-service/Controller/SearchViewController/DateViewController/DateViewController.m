@@ -10,7 +10,7 @@
 
 @interface DateViewController ()
 
-@property (weak, nonatomic) IBOutlet UIView *wrapContent;
+@property (weak, nonatomic) UIView *wrapContent;
 
 @end
 

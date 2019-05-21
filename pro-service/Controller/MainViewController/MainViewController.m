@@ -84,6 +84,7 @@
     Event *event = calendar.today[indexPath.row];
     cell.titleLabel.text = event.title;
     cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
+    cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
     
     return cell;
 }

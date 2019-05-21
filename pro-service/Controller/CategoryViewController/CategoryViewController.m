@@ -10,6 +10,7 @@
 #import "CategoryTableViewCell.h"
 #import "Event.h"
 #import "EventListViewController.h"
+#import "Calendar.h"
 
 @interface CategoryViewController ()
 {
@@ -70,7 +71,15 @@
     if ([segue.identifier isEqualToString:@"eventToCategory"])
     {
         EventListViewController *vc = segue.destinationViewController;
+        NSMutableArray *arrayTag = [[NSMutableArray alloc] init];
+        [arrayTag addObject:[NSString stringWithFormat:@"%@", event.category[rowSelectIndex][@"id"]]];
+        DLog(@"%@", arrayTag);
+        
+        Calendar *calendar = [[Calendar alloc] init];
+        [calendar loadTag:arrayTag];
+        
         vc.navTitle = event.category[rowSelectIndex][@"title"];
+        vc.arrayEvent = calendar.today;
     }
 }
 

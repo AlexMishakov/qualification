@@ -42,6 +42,7 @@
     event.profile_name = dictinary[@"profile_name"];
     event.profile_surname = dictinary[@"profile_surname"];
     event.rating = [dictinary[@"rating"] floatValue];
+    event.category = dictinary[@"tag"];
     
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
