@@ -9,10 +9,24 @@
 			$idEvent = $req['id'];
 			$Today = $req['today'];
 			$Date = $req['date'];
+			$idCategory = explode(",", $req['tag']);
 			
 			if (!empty($idEvent))
 			{
 				$sqlForId = "create_event_event.id = '$idEvent' AND";
+			}
+			else if (count($idCategory) != 0)
+			{
+				$sqlTag = "create_event_event.id = create_event_tagscommunity.id_event_id AND";
+				$sqlTagTransfer = "";
+				for ($i = 0; $i < count($idCategory); $i++)
+				{
+					$idTag = $idCategory[$i];
+					$sqlTagTransfer .= "create_event_tagscommunity.id_tag_id = $idTag";
+					if ($i != count($idCategory)-1) $sqlTagTransfer .= " OR ";
+				}
+				
+				$sqlTag .= " ( $sqlTagTransfer ) AND";
 			}
 			
 			if ($Today == true)
@@ -31,7 +45,6 @@
 				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 			}
 			
-			// TODO: tags
 			$sql = "SELECT
 						create_event_event.id,
 						create_event_event.title,
@@ -52,14 +65,15 @@
 						create_event_event,
 						create_event_agerating,
 						create_event_organization,
-						auth_user
+						auth_user,
+						create_event_tagscommunity
 					WHERE
 						$sqlForId
 						$sqlDate
+						$sqlTag
 						create_event_agerating.id = create_event_event.age_rating_id AND
 						create_event_event.status = 1 AND
-						create_event_organization.id = create_event_event.id_venue_id AND
-						auth_user.id = create_event_event.id_author_id
+						create_event_organization.id = create_event_event.id_venue_id
 					ORDER BY create_event_event.created_date";
 			$result = mysqli_query($this->conn, $sql);
 			
@@ -67,6 +81,25 @@
 			{
 				while($row = mysqli_fetch_assoc($result))
 				{
+					$idEventRow = $row['id'];
+					$sql = "SELECT
+								create_event_tag.title
+							FROM
+								create_event_tag,
+								create_event_tagscommunity
+							WHERE
+								create_event_tag.id = create_event_tagscommunity.id_tag_id AND
+								create_event_tagscommunity.id_event_id = $idEventRow";
+					$resultTag = mysqli_query($this->conn, $sql);
+					
+					$ArrayTag = array();
+					while($rowTag = mysqli_fetch_assoc($resultTag))
+					{
+						array_push($ArrayTag, $rowTag['title']);
+					}
+					
+					$row['tag'] = $ArrayTag;
+					
 					array_push($ArrayEvents, $row);
 				}
 				
@@ -125,6 +158,43 @@
 			
 			return $Array;
 		}
-	
+		
+		public function getByCatagory($req) {
+			$Array = array();
+			$idCategory = explode(",", $req['tag']);
+			
+			$sql = "SELECT
+						create_event_event.created_date
+					FROM
+						create_event_event
+					WHERE
+						create_event_event.created_date > '$dateToday'
+					ORDER BY create_event_event.created_date";
+			$result = mysqli_query($this->conn, $sql);
+			
+			if (mysqli_num_rows($result) > 0)
+			{
+				while($row = mysqli_fetch_assoc($result))
+				{
+					$date = date_create($row['created_date']);
+					$dateString = date_format($date, 'Y-m-d');
+					
+					if (!in_array($dateString, $ArrayEventsDate))
+					{
+						array_push($ArrayEventsDate, date_format($date, 'Y-m-d'));
+					}
+				}
+				
+				$Array['events'] = $ArrayEventsDate;
+				$Array['error'] = "910";
+			}
+			else
+			{
+				$Array['error'] = "900";
+				if (DEBUG) $Array['error_debug'] = $sql."\n".mysqli_error($this->conn);
+			}
+			
+			return $Array;
+		}
 	}
 ?>
