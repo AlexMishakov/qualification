@@ -9,6 +9,7 @@
 			$idEvent = $req['id'];
 			$Today = $req['today'];
 			$Date = $req['date'];
+			$Free = $req['free'];
 			if (!empty($req['tag'])) $idCategory = explode(",", $req['tag']);
 			
 			if (!empty($idEvent))
@@ -46,6 +47,11 @@
 				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 			}
 			
+			if ($Free == true)
+			{
+				$sqlFree = "create_event_event.price = 0 AND";
+			}
+			
 			$sql = "SELECT
 						create_event_event.id,
 						create_event_event.title,
@@ -72,6 +78,7 @@
 						$sqlForId
 						$sqlDate
 						$sqlTag
+						$sqlFree
 						create_event_agerating.id = create_event_event.age_rating_id AND
 						create_event_event.status = 1 AND
 						create_event_organization.id = create_event_event.id_venue_id
@@ -105,10 +112,6 @@
 				}
 				
 				$Array['events'] = $ArrayEvents;
-				
-				// ???
-				// $Array['events'] = mysqli_fetch_array($result, MYSQLI_ASSOC);
-				
 				$Array['error'] = "910";
 			}
 			else
@@ -160,42 +163,5 @@
 			return $Array;
 		}
 		
-		public function getByCatagory($req) {
-			$Array = array();
-			$idCategory = explode(",", $req['tag']);
-			
-			$sql = "SELECT
-						create_event_event.created_date
-					FROM
-						create_event_event
-					WHERE
-						create_event_event.created_date > '$dateToday'
-					ORDER BY create_event_event.created_date";
-			$result = mysqli_query($this->conn, $sql);
-			
-			if (mysqli_num_rows($result) > 0)
-			{
-				while($row = mysqli_fetch_assoc($result))
-				{
-					$date = date_create($row['created_date']);
-					$dateString = date_format($date, 'Y-m-d');
-					
-					if (!in_array($dateString, $ArrayEventsDate))
-					{
-						array_push($ArrayEventsDate, date_format($date, 'Y-m-d'));
-					}
-				}
-				
-				$Array['events'] = $ArrayEventsDate;
-				$Array['error'] = "910";
-			}
-			else
-			{
-				$Array['error'] = "900";
-				if (DEBUG) $Array['error_debug'] = $sql."\n".mysqli_error($this->conn);
-			}
-			
-			return $Array;
-		}
 	}
 ?>
