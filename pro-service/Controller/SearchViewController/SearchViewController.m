@@ -11,15 +11,18 @@
 #import "SearchCategoryViewController.h"
 #import "DateViewController.h"
 #import "EventListViewController.h"
+#import "Calendar.h"
 @import SPStorkController;
 
-@interface SearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
+@interface SearchViewController () <UISearchBarDelegate>
 {
     NSArray *cellArray;
+    Calendar *calendar;
+    NSDate *selectDate;
 }
 
-@property (strong, nonatomic) UISearchController *searchController;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @end
 
@@ -29,59 +32,87 @@
 {
     [super viewDidLoad];
     
+    calendar = [[Calendar alloc] init];
     cellArray = @[@"Категория", @"Дата", @"Бесплатные"];
     
-    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
-    self.searchController.searchResultsUpdater = self;
-    self.searchController.searchBar.delegate = self;
-    self.searchController.searchBar.tintColor = COLOR_MAIN;
-    self.searchController.dimsBackgroundDuringPresentation = NO;
-    self.searchController.searchBar.returnKeyType = UIReturnKeyDone;
-    self.searchController.searchBar.placeholder = @"События";
-    self.definesPresentationContext = YES;
-    
-    self.navigationItem.searchController = self.searchController;
-    self.navigationController.navigationBar.prefersLargeTitles = true;
-    
-    self.navigationItem.hidesSearchBarWhenScrolling = false;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        self.navigationItem.hidesSearchBarWhenScrolling = true;
-    });
-    
     self.tableView.tableFooterView = [[UIView alloc] init];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setCategory:) name:@"setCategory" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(setDate:) name:@"setDate" object:nil];
+}
+
+// при выходе с контроллера очищаются все поля
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [[NSUserDefaults standardUserDefaults] removeObjectForKey:@"setCategorySearch"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"setCategory" object:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"setDate" object:nil];
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
+    SearchTableViewCell *cell = (SearchTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    self.searchBar.text = @"";
+}
+
+- (void)setCategory:(NSNotification *)notification
+{
+    NSMutableArray *categoryTitle = [[NSMutableArray alloc] init];
+    NSDictionary *dict = [notification object];
+    NSArray *keys = [dict allKeys];
+    
+    for (int i = 0; i < keys.count; i++)
+    {
+        [categoryTitle addObject:dict[keys[i]]];
+    }
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+    SearchTableViewCell *cell = (SearchTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.supLabel.hidden = false;
+    cell.supLabel.text = [categoryTitle componentsJoinedByString:@", "];
+    
+    DLog(@"%@", [notification object]);
+}
+
+- (void)setDate:(NSNotification *)notification
+{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    selectDate = [dateFormatter dateFromString:[notification object]];
+    
+    NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+    dateFormatter2.dateFormat = @"dd MMMM yyyy";
+    
+    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
+    SearchTableViewCell *cell = (SearchTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
+    cell.supLabel.hidden = false;
+    cell.supLabel.text = [dateFormatter2 stringFromDate:selectDate];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
 }
 
 // MARK: SearchController
-
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController
-{
-    DLog(@"searchController: %@", searchController.searchBar.text);
-}
-
-- (void)searchBar:(UISearchBar * _Nonnull)searchBar
-{
-    DLog(@"searchBar: %@", searchBar.text);
-}
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)theSearchBar
 {
     [theSearchBar resignFirstResponder];
     [theSearchBar setShowsCancelButton:NO animated:YES];
-
-    DLog(@"Test");
 }
 
-//- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-//{
-//    [searchBar setShowsCancelButton:YES animated:YES];
-//}
-//
-//- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
-//{
-//    [searchBar resignFirstResponder];
-//    [searchBar setShowsCancelButton:NO animated:YES];
-//}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    [searchBar setShowsCancelButton:YES animated:YES];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    [searchBar resignFirstResponder];
+    [searchBar setShowsCancelButton:NO animated:YES];
+}
 
 // MARK: Table
 
@@ -152,6 +183,10 @@
     if ([segue.identifier isEqualToString:@"eventToSearch"])
     {
         EventListViewController *vc = segue.destinationViewController;
+        
+        [calendar searchTag:nil date:nil free:nil text:nil];
+        
+        vc.navPrefersLargeTitles = true;
     }
 }
 

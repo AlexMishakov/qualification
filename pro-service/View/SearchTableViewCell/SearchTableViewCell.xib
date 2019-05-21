@@ -19,23 +19,36 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="48.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8T-cl-HEs">
-                        <rect key="frame" x="16" y="0.0" width="288" height="48.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Бесплатные" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X8T-cl-HEs">
+                        <rect key="frame" x="16" y="11" width="105" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="105" id="ubw-fp-NFQ"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43b-ul-RT4">
+                        <rect key="frame" x="129" y="11" width="175" height="27"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="X8T-cl-HEs" secondAttribute="trailing" constant="16" id="4Uv-6t-D4v"/>
+                    <constraint firstItem="43b-ul-RT4" firstAttribute="leading" secondItem="X8T-cl-HEs" secondAttribute="trailing" constant="8" id="5z3-pv-cLr"/>
                     <constraint firstItem="X8T-cl-HEs" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="HOd-1W-Z2m"/>
-                    <constraint firstAttribute="bottom" secondItem="X8T-cl-HEs" secondAttribute="bottom" id="frw-70-N3D"/>
-                    <constraint firstItem="X8T-cl-HEs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gfm-Os-s4t"/>
+                    <constraint firstItem="X8T-cl-HEs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="UoH-15-t76"/>
+                    <constraint firstItem="43b-ul-RT4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="V9w-1j-7nK"/>
+                    <constraint firstItem="X8T-cl-HEs" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="Zem-6L-II8"/>
+                    <constraint firstItem="43b-ul-RT4" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="dYD-Df-RVQ"/>
+                    <constraint firstItem="43b-ul-RT4" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="xkd-sX-oSh"/>
                 </constraints>
             </tableViewCellContentView>
-            <color key="tintColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
             <connections>
+                <outlet property="supLabel" destination="43b-ul-RT4" id="bG2-Ev-2fH"/>
                 <outlet property="titleLabel" destination="X8T-cl-HEs" id="uaC-Bu-d4J"/>
             </connections>
             <point key="canvasLocation" x="137.59999999999999" y="154.27286356821591"/>

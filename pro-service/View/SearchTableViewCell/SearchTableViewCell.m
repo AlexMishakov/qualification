@@ -15,6 +15,7 @@
     [super awakeFromNib];
     
     self.titleLabel.textColor = COLOR_MAIN;
+    self.supLabel.hidden = true;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -14,6 +14,8 @@
 @interface SearchCategoryViewController () <UITableViewDelegate, UITableViewDataSource>
 {
     Event *event;
+    NSMutableDictionary *selectCatgory;
+    NSUserDefaults *UserDefaults;
 }
 
 @end
@@ -31,6 +33,13 @@
     [super viewDidLoad];
     
     event = [[Event alloc] init];
+    UserDefaults = [NSUserDefaults standardUserDefaults];
+    NSData *data = [UserDefaults objectForKey:@"setCategorySearch"];
+    selectCatgory = [[NSMutableDictionary alloc] initWithDictionary:[NSKeyedUnarchiver unarchiveObjectWithData:data]];
+    
+    DLog(@"%@", selectCatgory);
+    DLog(@"%@", [UserDefaults objectForKey:@"setCategorySearch"]);
+    
     self.view.backgroundColor = [UIColor whiteColor];
     self.modalPresentationCapturesStatusBarAppearance = true;
     
@@ -73,6 +82,15 @@
     cell.titleLabel.text = event.category[indexPath.row][@"title"];
     cell.imageViewIcon.image = [UIImage imageNamed:event.category[indexPath.row][@"imageName"]];
     
+    if ([[selectCatgory allKeys] containsObject:event.category[indexPath.row][@"id"]])
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -81,15 +99,24 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     CategoryTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *key = event.category[indexPath.row][@"id"];
+    NSString *velue = event.category[indexPath.row][@"title"];
     
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
+        [selectCatgory removeObjectForKey:key];
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [selectCatgory setObject:velue forKey:key];
     }
+    
+    DLog(@"%@", selectCatgory);
+    NSData *data = [NSKeyedArchiver archivedDataWithRootObject:selectCatgory];
+    [UserDefaults setObject:data forKey:@"setCategorySearch"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"setCategory" object:selectCatgory];
 }
 
 // TODO: close model view when tabel scroll

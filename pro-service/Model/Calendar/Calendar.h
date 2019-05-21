@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)loadFromDate:(NSDate *)date;
 - (void)loadAllDay;
 - (void)loadTag:(NSArray *)tags;
+- (void)searchTag:(nullable NSArray *)tags date:(nullable NSDate *)date free:(BOOL)free text:(nullable NSString *)text;
 
 @end
 

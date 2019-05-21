@@ -7,8 +7,14 @@
 //
 
 #import "DateViewController.h"
+#import "Calendar.h"
 
-@interface DateViewController ()
+@interface DateViewController () <UIPickerViewDelegate, UIPickerViewDataSource>
+{
+    UIPickerView *datePicker;
+    Calendar *calendar;
+    NSInteger selectedRow;
+}
 
 @property (weak, nonatomic) UIView *wrapContent;
 
@@ -24,6 +30,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    calendar = [[Calendar alloc] init];
+    [calendar loadAllDay];
     
     self.modalPresentationCapturesStatusBarAppearance = true;
     
@@ -56,7 +65,11 @@
     titleLabel.text = @"Выберите дату";
     [titleLabel setFont:[UIFont boldSystemFontOfSize:22]];
     
-    UIDatePicker *datePicker = [[UIDatePicker alloc] initWithFrame:CGRectMake(0, 43, self.view.frame.size.width, 216)];
+    datePicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 43, self.view.frame.size.width, 216)];
+    datePicker.delegate = self;
+    datePicker.dataSource = self;
+    [datePicker selectRow:0 inComponent:0 animated:YES];
+    
     UIButton *selectButton = [[UIButton alloc] initWithFrame:CGRectMake(16, 259, self.view.frame.size.width-32, 42)];
     selectButton.backgroundColor = [UIColor redColor];
     selectButton.backgroundColor = COLOR_LIGHT_MAIN;
@@ -83,7 +96,51 @@
 
 - (void)buttonTouchSelect:(UIButton *)button
 {
+    DLog(@"%ld", (long)selectedRow);
+    
+    NSString *setText = @"";
+    if(selectedRow != 0)
+    {
+        setText = calendar.allDay[selectedRow-1];
+    }
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"setDate" object:setText];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return calendar.allDay.count+1;
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    if (row == 0)
+    {
+        return @"Не выбрано";
+    }
+    else
+    {
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+        NSDate *date = [dateFormatter dateFromString:calendar.allDay[row-1]];
+        
+        NSDateFormatter *dateFormatter2 = [[NSDateFormatter alloc] init];
+        dateFormatter2.dateFormat = @"dd MMMM yyyy";
+        
+        return [dateFormatter2 stringFromDate:date];
+    }
+}
+
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    selectedRow = row;
+}
+
 
 @end

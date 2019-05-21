@@ -29,6 +29,7 @@
     self.title = self.navTitle;
     
     [self.navigationController.navigationBar setValue:@(NO) forKeyPath:@"hidesShadow"];
+    self.navigationController.navigationBar.prefersLargeTitles = !self.navPrefersLargeTitles;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

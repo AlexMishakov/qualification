@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) NSString *navTitle;
 @property (nonatomic, strong) NSArray *arrayEvent;
+@property BOOL navPrefersLargeTitles;
 
 @end
 
