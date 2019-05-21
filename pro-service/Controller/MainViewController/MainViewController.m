@@ -9,11 +9,14 @@
 #import "MainViewController.h"
 #import "MainTableViewCell.h"
 #import "MainCollectionViewCell.h"
+#import "Calendar.h"
+#import "Event.h"
 
 @interface MainViewController ()
 {
     CGFloat tabelHeaderViewHeight;
     UIView *sectionSeparator;
+    Calendar *calendar;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewSectionTopRadius;
@@ -48,6 +51,9 @@
     self.collectionNew.showsHorizontalScrollIndicator = false;
     self.collectionNew.delaysContentTouches = false;
     [self.collectionNew registerNib:[UINib nibWithNibName:@"MainCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MainCollectionViewCell"];
+    
+    calendar = [[Calendar alloc] init];
+    [calendar loadToday];
 }
 
 // MARK: TableView
@@ -59,7 +65,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 20;
+    return calendar.today.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,6 +78,12 @@
         cell = [nib objectAtIndex:0];
     }
     
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"HH:mm"];
+    
+    Event *event = calendar.today[indexPath.row];
+    cell.titleLabel.text = event.title;
+    cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
     
     return cell;
 }
@@ -98,7 +110,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    DLog(@"scrollView: %f", scrollView.contentOffset.y);
+//    DLog(@"scrollView: %f", scrollView.contentOffset.y);
     
     CGRect newFrame = self.tabelHeaderViewContent.frame;
     

@@ -32,6 +32,8 @@
 		FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */ = {isa = PBXBuildFile; fileRef = FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */; };
 		FAEBC3DA2293084400A4D033 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3D92293084400A4D033 /* DateViewController.m */; };
 		FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */; };
+		FAEBC3E22293776600A4D033 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3E12293776600A4D033 /* Event.m */; };
+		FAEBC3E72293795A00A4D033 /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3E62293795A00A4D033 /* Calendar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,10 @@
 		FAEBC3D92293084400A4D033 /* DateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
 		FAEBC3DC2293649400A4D033 /* SearchCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryViewController.h; sourceTree = "<group>"; };
 		FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchCategoryViewController.m; sourceTree = "<group>"; };
+		FAEBC3E02293776600A4D033 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		FAEBC3E12293776600A4D033 /* Event.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
+		FAEBC3E52293795A00A4D033 /* Calendar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Calendar.h; sourceTree = "<group>"; };
+		FAEBC3E62293795A00A4D033 /* Calendar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Calendar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +289,7 @@
 			children = (
 				FA98C365228A33C6002D49AF /* AppDelegate.h */,
 				FA98C366228A33C6002D49AF /* AppDelegate.m */,
+				FAEBC3E42293777400A4D033 /* Model */,
 				FA74F4AE228B25FE00DDF9E4 /* View */,
 				FA74F4AF228B260500DDF9E4 /* Controller */,
 				FA98C36B228A33C6002D49AF /* Main.storyboard */,
@@ -328,6 +335,33 @@
 				FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */,
 			);
 			path = SearchCategoryViewController;
+			sourceTree = "<group>";
+		};
+		FAEBC3E32293776F00A4D033 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				FAEBC3E02293776600A4D033 /* Event.h */,
+				FAEBC3E12293776600A4D033 /* Event.m */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		FAEBC3E42293777400A4D033 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FAEBC3E32293776F00A4D033 /* Event */,
+				FAEBC3E82293795D00A4D033 /* Calendar */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FAEBC3E82293795D00A4D033 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				FAEBC3E52293795A00A4D033 /* Calendar.h */,
+				FAEBC3E62293795A00A4D033 /* Calendar.m */,
+			);
+			path = Calendar;
 			sourceTree = "<group>";
 		};
 		FF9BBBB72CD18273CAABDF6F /* Pods */ = {
@@ -562,9 +596,11 @@
 				FA98C375228A33C8002D49AF /* main.m in Sources */,
 				FA67DB21228CC9FE001E5655 /* CalendarViewController.m in Sources */,
 				FAEBC3DA2293084400A4D033 /* DateViewController.m in Sources */,
+				FAEBC3E22293776600A4D033 /* Event.m in Sources */,
 				FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */,
 				FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */,
 				FA2D946C2290C7EB0011D063 /* SearchViewController.m in Sources */,
+				FAEBC3E72293795A00A4D033 /* Calendar.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
 				FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */,

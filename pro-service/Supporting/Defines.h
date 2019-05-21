@@ -15,7 +15,7 @@
 
 // MARK: Urls
 #if DEBUG
-    #define DOMEN  @""
+    #define DOMEN  @"http://ps.api.192.168.1.69.xip.io:8888"
 #else
     #define DOMEN  @""
 #endif
