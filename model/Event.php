@@ -8,6 +8,7 @@
 			$ArrayEvents = array();
 			$idEvent = $req['id'];
 			$Today = $req['today'];
+			$Date = $req['date'];
 			
 			if (!empty($idEvent))
 			{
@@ -16,9 +17,18 @@
 			
 			if ($Today == true)
 			{
-				$dateToday = date('Y-m-d H:i:s');
+				$dateString = date('Y-m-d H:i:s');
 				$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
-				$sqlToday = "(create_event_event.created_date > '$dateToday' AND create_event_event.created_date < '$dateTomorrow') AND";
+				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
+			}
+			else if (!empty($Date))
+			{
+				$date = date_create($Date);
+				$date2 = date_create($Date);
+				date_modify($date2, '+1 day');;
+				$dateString = date_format($date, 'Y-m-d 00:00:00');
+				$dateTomorrow = date_format($date2, 'Y-m-d 00:00:00');
+				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 			}
 			
 			// TODO: tags
@@ -45,7 +55,7 @@
 						auth_user
 					WHERE
 						$sqlForId
-						$sqlToday
+						$sqlDate
 						create_event_agerating.id = create_event_event.age_rating_id AND
 						create_event_event.status = 1 AND
 						create_event_organization.id = create_event_event.id_venue_id AND
