@@ -9,7 +9,7 @@
 			$idEvent = $req['id'];
 			$Today = $req['today'];
 			$Date = $req['date'];
-			$idCategory = explode(",", $req['tag']);
+			if (!empty($req['tag'])) $idCategory = explode(",", $req['tag']);
 			
 			if (!empty($idEvent))
 			{
@@ -27,6 +27,7 @@
 				}
 				
 				$sqlTag .= " ( $sqlTagTransfer ) AND";
+				$sqlTagTable = ", create_event_tagscommunity";
 			}
 			
 			if ($Today == true)
@@ -65,8 +66,8 @@
 						create_event_event,
 						create_event_agerating,
 						create_event_organization,
-						auth_user,
-						create_event_tagscommunity
+						auth_user
+						$sqlTagTable
 					WHERE
 						$sqlForId
 						$sqlDate
@@ -74,7 +75,7 @@
 						create_event_agerating.id = create_event_event.age_rating_id AND
 						create_event_event.status = 1 AND
 						create_event_organization.id = create_event_event.id_venue_id
-					ORDER BY create_event_event.created_date";
+					ORDER BY create_event_event.created_date LIMIT 50";
 			$result = mysqli_query($this->conn, $sql);
 			
 			if (mysqli_num_rows($result) > 0)
