@@ -9,10 +9,11 @@
 #import "SearchCategoryViewController.h"
 #import "CategoryTableViewCell.h"
 @import  SPStorkController;
+#import "Event.h"
 
 @interface SearchCategoryViewController () <UITableViewDelegate, UITableViewDataSource>
 {
-    NSArray *categoryArray;
+    Event *event;
 }
 
 @end
@@ -29,6 +30,7 @@
 {
     [super viewDidLoad];
     
+    event = [[Event alloc] init];
     self.view.backgroundColor = [UIColor whiteColor];
     self.modalPresentationCapturesStatusBarAppearance = true;
     
@@ -51,21 +53,11 @@
     [self.view addSubview:titleLabel];
     [self.view addSubview:discripationLabel];
     [self.view addSubview:tableView];
-    
-    categoryArray = @[
-                      @{@"title": @"Кино", @"imageName": @"emoji_cinema"},
-                      @{@"title": @"Музыка", @"imageName": @"emoji_music"},
-                      @{@"title": @"Музеи, выставки, библиотеки", @"imageName": @"emoji_museum"},
-                      @{@"title": @"Фестивали, массовые гуляния, конкурсы", @"imageName": @"emoji_festival"},
-                      @{@"title": @"Спорт", @"imageName": @"emoji_sport"},
-                      @{@"title": @"Образование", @"imageName": @"emoji_education"},
-                      @{@"title": @"Услуги", @"imageName": @"emoji_amenities"}
-                      ];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return categoryArray.count;
+    return event.category.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -78,8 +70,8 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.titleLabel.text = categoryArray[indexPath.row][@"title"];
-    cell.imageViewIcon.image = [UIImage imageNamed:categoryArray[indexPath.row][@"imageName"]];
+    cell.titleLabel.text = event.category[indexPath.row][@"title"];
+    cell.imageViewIcon.image = [UIImage imageNamed:event.category[indexPath.row][@"imageName"]];
     
     return cell;
 }

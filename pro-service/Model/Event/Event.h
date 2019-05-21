@@ -24,6 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, nonnull) NSString *main_photo;
 @property (nonatomic, nonnull) NSString *profile_name;
 @property (nonatomic, nonnull) NSString *profile_surname;
+@property (nonatomic, nonnull) NSArray *category;
 
 - (Event *)dictinaryToEvent:(NSDictionary *)dictinary;
 

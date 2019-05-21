@@ -8,10 +8,10 @@
 
 #import "SearchViewController.h"
 #import "SearchTableViewCell.h"
-@import SPStorkController;
-
 #import "SearchCategoryViewController.h"
 #import "DateViewController.h"
+#import "EventListViewController.h"
+@import SPStorkController;
 
 @interface SearchViewController () <UISearchBarDelegate, UISearchResultsUpdating>
 {
@@ -139,6 +139,19 @@
         {
             cell.accessoryType = UITableViewCellAccessoryCheckmark;
         }
+    }
+}
+
+- (IBAction)selectSearch:(id)sender
+{
+    [self performSegueWithIdentifier:@"eventToSearch" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"eventToSearch"])
+    {
+        EventListViewController *vc = segue.destinationViewController;
     }
 }
 

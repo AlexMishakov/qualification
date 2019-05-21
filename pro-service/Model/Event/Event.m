@@ -15,7 +15,15 @@
     self = [super init];
     if (self)
     {
-        
+        self.category = @[
+                          @{@"id": @2, @"title": @"Кино", @"imageName": @"emoji_cinema"},
+                          @{@"id": @3, @"title": @"Музыка", @"imageName": @"emoji_music"},
+                          @{@"id": @4, @"title": @"Музеи, выставки, библиотеки", @"imageName": @"emoji_museum"},
+                          @{@"id": @5, @"title": @"Фестивали, массовые гуляния, конкурсы", @"imageName": @"emoji_festival"},
+                          @{@"id": @6, @"title": @"Спорт", @"imageName": @"emoji_sport"},
+                          @{@"id": @7, @"title": @"Образование", @"imageName": @"emoji_education"},
+                          @{@"id": @8, @"title": @"Услуги", @"imageName": @"emoji_amenities"}
+                         ];
     }
     return self;
 }

@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSArray *allDay;
 
 - (void)loadToday;
+- (void)loadFromDate:(NSDate *)date;
 - (void)loadAllDay;
 
 @end

@@ -8,10 +8,13 @@
 
 #import "CategoryViewController.h"
 #import "CategoryTableViewCell.h"
+#import "Event.h"
+#import "EventListViewController.h"
 
 @interface CategoryViewController ()
 {
-    NSArray *categoryArray;
+    Event *event;
+    NSInteger rowSelectIndex;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -24,24 +27,19 @@
 {
     [super viewDidLoad];
     
-    categoryArray = @[
-                          @{@"title": @"Кино", @"imageName": @"emoji_cinema"},
-                          @{@"title": @"Музыка", @"imageName": @"emoji_music"},
-                          @{@"title": @"Музеи, выставки, библиотеки", @"imageName": @"emoji_museum"},
-                          @{@"title": @"Фестивали, массовые гуляния, конкурсы", @"imageName": @"emoji_festival"},
-                          @{@"title": @"Спорт", @"imageName": @"emoji_sport"},
-                          @{@"title": @"Образование", @"imageName": @"emoji_education"},
-                          @{@"title": @"Услуги", @"imageName": @"emoji_amenities"}
-                      ];
+    event = [[Event alloc] init];
     
     self.tableView.tableFooterView = [UIView new];
-    
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return categoryArray.count;
+    return event.category.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -54,8 +52,8 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.titleLabel.text = categoryArray[indexPath.row][@"title"];
-    cell.imageViewIcon.image = [UIImage imageNamed:categoryArray[indexPath.row][@"imageName"]];
+    cell.titleLabel.text = event.category[indexPath.row][@"title"];
+    cell.imageViewIcon.image = [UIImage imageNamed:event.category[indexPath.row][@"imageName"]];
     
     return cell;
 }
@@ -63,6 +61,17 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    rowSelectIndex = indexPath.row;
+    [self performSegueWithIdentifier:@"eventToCategory" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"eventToCategory"])
+    {
+        EventListViewController *vc = segue.destinationViewController;
+        vc.navTitle = event.category[rowSelectIndex][@"title"];
+    }
 }
 
 @end

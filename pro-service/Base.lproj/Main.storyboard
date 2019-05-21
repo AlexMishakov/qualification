@@ -40,6 +40,7 @@
                     <navigationItem key="navigationItem" title="Категории" id="9Zz-Vr-w9S"/>
                     <connections>
                         <outlet property="tableView" destination="r7T-We-Ke8" id="397-rm-a53"/>
+                        <segue destination="lv2-Ia-Kyp" kind="show" identifier="eventToCategory" id="hch-Hb-YlN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o9Y-4Z-Boi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -367,11 +368,47 @@
                     <connections>
                         <outlet property="calendar" destination="CBR-PZ-tYO" id="ERh-E9-0PI"/>
                         <outlet property="header" destination="xi9-wL-tql" id="2Bv-yy-4cb"/>
+                        <segue destination="lv2-Ia-Kyp" kind="show" identifier="eventToDate" id="ee0-te-8fe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FFn-h5-we0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="684" y="-332.38380809595208"/>
+        </scene>
+        <!--Event List View Controller-->
+        <scene sceneID="NbB-P6-yYA">
+            <objects>
+                <viewController id="lv2-Ia-Kyp" customClass="EventListViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nFB-V7-RJk">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GcY-3o-LkT">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lv2-Ia-Kyp" id="BzI-8e-ehi"/>
+                                    <outlet property="delegate" destination="lv2-Ia-Kyp" id="CQL-zZ-xU4"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GcY-3o-LkT" firstAttribute="leading" secondItem="jKa-ak-Cww" secondAttribute="leading" id="Aem-Nd-Tdp"/>
+                            <constraint firstItem="GcY-3o-LkT" firstAttribute="bottom" secondItem="jKa-ak-Cww" secondAttribute="bottom" id="H9K-OB-fqK"/>
+                            <constraint firstItem="GcY-3o-LkT" firstAttribute="trailing" secondItem="jKa-ak-Cww" secondAttribute="trailing" id="Ok9-QL-6t1"/>
+                            <constraint firstItem="GcY-3o-LkT" firstAttribute="top" secondItem="jKa-ak-Cww" secondAttribute="top" id="o83-Ih-WjB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jKa-ak-Cww"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="1lA-m6-NLV"/>
+                    <connections>
+                        <outlet property="tableView" destination="GcY-3o-LkT" id="sBc-o2-Xvp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gIM-1j-MWv" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1958" y="348"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="0eI-gc-fcC">
@@ -518,6 +555,9 @@
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="selectSearch:" destination="JdT-9v-5G5" eventType="touchUpInside" id="zBy-fu-gd4"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -544,6 +584,7 @@
                     <navigationItem key="navigationItem" title="Поиск" id="fgG-fW-cyB"/>
                     <connections>
                         <outlet property="tableView" destination="UeO-04-gAr" id="huo-hC-MGk"/>
+                        <segue destination="lv2-Ia-Kyp" kind="show" identifier="eventToSearch" id="sVb-kU-b7Q"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hn9-Iq-tkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -762,5 +803,8 @@
         <image name="albums" width="30" height="30"/>
         <image name="tag" width="21" height="22"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sVb-kU-b7Q"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
 </document>

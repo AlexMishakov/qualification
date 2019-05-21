@@ -9,11 +9,13 @@
 #import "CalendarViewController.h"
 #import "FSCalendar.h"
 #import "Calendar.h"
+#import "EventListViewController.h"
 
 @interface CalendarViewController () <FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance>
 {
     CGFloat navHeight;
     Calendar *calendarModel;
+    NSDate *selectDate;
 }
 
 @property (weak, nonatomic) IBOutlet FSCalendar *calendar;
@@ -64,10 +66,13 @@
     self.minimumDate = [NSDate date];
     self.maximumDate = [self.dateFormatter dateFromString:calendarModel.allDay[calendarModel.allDay.count-1]];
     
-    [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
-    
     navHeight = self.navigationController.navigationBar.frame.size.height;
     [self headerScroll];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
 }
 
 // MARK: FSCalendarDataSource
@@ -91,6 +96,17 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self.calendar deselectDate:date];
     });
+    
+    selectDate = date;
+    
+    if ([calendarModel.allDay containsObject:[self.dateFormatter stringFromDate:date]])
+    {
+        [self performSegueWithIdentifier:@"eventToDate" sender:nil];
+    }
+    else
+    {
+        NSLog(@"no date");
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -127,6 +143,21 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.001 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self headerScroll];
     });
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"eventToDate"])
+    {
+        EventListViewController *vc = segue.destinationViewController;
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        dateFormatter.dateFormat = @"dd MMMM yyyy";
+        [calendarModel loadFromDate:selectDate];
+        
+        vc.navTitle = [dateFormatter stringFromDate:selectDate];
+        vc.arrayEvent = calendarModel.today;
+    }
 }
 
 @end

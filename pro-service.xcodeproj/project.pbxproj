@@ -19,6 +19,7 @@
 		FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B2228B263B00DDF9E4 /* CategoryViewController.m */; };
 		FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B6228B274200DDF9E4 /* CategoryTableViewCell.m */; };
 		FA74F4B9228B274200DDF9E4 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */; };
+		FA8BBD9622945CF500DB52BA /* EventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BBD9522945CF500DB52BA /* EventListViewController.m */; };
 		FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98C366228A33C6002D49AF /* AppDelegate.m */; };
 		FA98C36D228A33C6002D49AF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA98C36B228A33C6002D49AF /* Main.storyboard */; };
 		FA98C36F228A33C8002D49AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA98C36E228A33C8002D49AF /* Assets.xcassets */; };
@@ -82,6 +83,8 @@
 		FA74F4B5228B274200DDF9E4 /* CategoryTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryTableViewCell.h; sourceTree = "<group>"; };
 		FA74F4B6228B274200DDF9E4 /* CategoryTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryTableViewCell.m; sourceTree = "<group>"; };
 		FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		FA8BBD9422945CF500DB52BA /* EventListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventListViewController.h; sourceTree = "<group>"; };
+		FA8BBD9522945CF500DB52BA /* EventListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventListViewController.m; sourceTree = "<group>"; };
 		FA98C362228A33C6002D49AF /* pro-service.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "pro-service.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA98C365228A33C6002D49AF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FA98C366228A33C6002D49AF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -230,6 +233,7 @@
 				FA67DB22228CCA02001E5655 /* CalendarViewController */,
 				FA74F4B4228B263F00DDF9E4 /* CategoryViewController */,
 				FA2D946D2290C7EE0011D063 /* SearchViewController */,
+				FA8BBD9722945CF900DB52BA /* EventListViewController */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -260,6 +264,15 @@
 				FA74F4B7228B274200DDF9E4 /* CategoryTableViewCell.xib */,
 			);
 			path = CategoryTableViewCell;
+			sourceTree = "<group>";
+		};
+		FA8BBD9722945CF900DB52BA /* EventListViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA8BBD9422945CF500DB52BA /* EventListViewController.h */,
+				FA8BBD9522945CF500DB52BA /* EventListViewController.m */,
+			);
+			path = EventListViewController;
 			sourceTree = "<group>";
 		};
 		FA98C359228A33C6002D49AF = {
@@ -603,6 +616,7 @@
 				FAEBC3E72293795A00A4D033 /* Calendar.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
+				FA8BBD9622945CF500DB52BA /* EventListViewController.m in Sources */,
 				FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */,
 				FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */,
 				FA98C399228A3436002D49AF /* MainViewController.m in Sources */,
