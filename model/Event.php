@@ -12,59 +12,69 @@
 			$Free = $req['free'];
 			$Text = $req['text'];
 			$Tag = $req['tag'];
+			$Poster =  $req['poster'];
 			
 			if ($Tag != '') $idCategory = explode(",", $Tag);
 			if ($Free == '') $Free = true;
+			if ($Poster == '') $Poster = false;
 			
 			$dateString = date('Y-m-d H:i:s');
 			
-			if (!empty($idEvent))
+			if ($Poster)
 			{
-				$sqlForId = "create_event_event.id = '$idEvent' AND";
+				$sqlTagTable = ", create_event_tagscommunity";
+				$sqlTag = "create_event_event.id = create_event_tagscommunity.id_event_id AND create_event_tagscommunity.id_tag_id = 1 AND";
 			}
-			else if (count($idCategory) != 0)
+			else
 			{
-				$sqlTag = "create_event_event.id = create_event_tagscommunity.id_event_id AND";
-				$sqlTagTransfer = "";
-				for ($i = 0; $i < count($idCategory); $i++)
+				if (!empty($idEvent))
 				{
-					$idTag = $idCategory[$i];
-					if ($idTag != 0)
+					$sqlForId = "create_event_event.id = '$idEvent' AND";
+				}
+				else if (count($idCategory) != 0)
+				{
+					$sqlTag = "create_event_event.id = create_event_tagscommunity.id_event_id AND";
+					$sqlTagTransfer = "";
+					for ($i = 0; $i < count($idCategory); $i++)
 					{
-						$sqlTagTransfer .= "create_event_tagscommunity.id_tag_id = $idTag";
-						if ($i != count($idCategory)-1) $sqlTagTransfer .= " OR ";
+						$idTag = $idCategory[$i];
+						if ($idTag != 0)
+						{
+							$sqlTagTransfer .= "create_event_tagscommunity.id_tag_id = $idTag";
+							if ($i != count($idCategory)-1) $sqlTagTransfer .= " OR ";
+						}
 					}
+					
+					$sqlTag .= " ($sqlTagTransfer) AND";
+					$sqlTagTable = ", create_event_tagscommunity";
 				}
 				
-				$sqlTag .= " ($sqlTagTransfer) AND";
-				$sqlTagTable = ", create_event_tagscommunity";
-			}
-			
-			if ($Today == true)
-			{
-				$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
-				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date <= '$dateTomorrow') AND";
-			}
-			else if (!empty($Date))
-			{
-				$date = date_create($Date);
-				$date2 = date_create($Date);
-				date_modify($date2, '+1 day');;
-				$dateString = date_format($date, 'Y-m-d 00:00:00');
-				$dateTomorrow = date_format($date2, 'Y-m-d 00:00:00');
-				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
-			}
-			
-			if ($Free == false)
-			{
-				$sqlFree = "NOT (create_event_event.price = 0) AND";
-			}
-			
-			if ($Text != '')
-			{
-				// TODO: сделать более полноценный поиск
-				// $sqlSerach = "MATCH (create_event_event.title, create_event_event.description) AGAINST ('$Text') AND";
-				$sqlSerach = "(create_event_event.title LIKE '%$Text%' OR create_event_event.description LIKE '%$Text%') AND";
+				if ($Today == true)
+				{
+					$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
+					$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date <= '$dateTomorrow') AND";
+				}
+				else if (!empty($Date))
+				{
+					$date = date_create($Date);
+					$date2 = date_create($Date);
+					date_modify($date2, '+1 day');;
+					$dateString = date_format($date, 'Y-m-d 00:00:00');
+					$dateTomorrow = date_format($date2, 'Y-m-d 00:00:00');
+					$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
+				}
+				
+				if ($Free == false)
+				{
+					$sqlFree = "NOT (create_event_event.price = 0) AND";
+				}
+				
+				if ($Text != '')
+				{
+					// TODO: сделать более полноценный поиск
+					// $sqlSerach = "MATCH (create_event_event.title, create_event_event.description) AGAINST ('$Text') AND";
+					$sqlSerach = "(create_event_event.title LIKE '%$Text%' OR create_event_event.description LIKE '%$Text%') AND";
+				}
 			}
 			
 			$sql = "SELECT
@@ -122,7 +132,7 @@
 					$ArrayTag = array();
 					while($rowTag = mysqli_fetch_assoc($resultTag))
 					{
-						if ($rowTag['id'] != 0)
+						if ($rowTag['id'] != 1)
 						{
 							array_push($ArrayTag, $rowTag['title']);
 						}
