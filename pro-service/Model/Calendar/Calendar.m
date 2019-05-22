@@ -115,10 +115,11 @@
     
     if (text != nil && ![text  isEqual: @""])
     {
-        DLog(@"text no nil");
+        StrUrl = [NSString stringWithFormat:@"%@&text=%@", StrUrl, text];
     }
     
     StrUrl = [DOMEN stringByAppendingString: StrUrl];
+    StrUrl = [StrUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLFragmentAllowedCharacterSet]];
     DLog(@"StrUrl: %@", StrUrl);
     
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];

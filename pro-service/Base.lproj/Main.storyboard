@@ -520,7 +520,7 @@
                                                 <constraint firstAttribute="height" constant="0.5" id="Xrd-UL-Pmq"/>
                                             </constraints>
                                         </view>
-                                        <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="События" translatesAutoresizingMaskIntoConstraints="NO" id="ebd-Qv-V0c">
+                                        <searchBar contentMode="redraw" fixedFrame="YES" searchBarStyle="minimal" placeholder="Ключевое слово" translatesAutoresizingMaskIntoConstraints="NO" id="ebd-Qv-V0c">
                                             <rect key="frame" x="8" y="0.0" width="359" height="56"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <textInputTraits key="textInputTraits" returnKeyType="done"/>

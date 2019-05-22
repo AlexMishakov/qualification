@@ -126,6 +126,8 @@
 }
 
 // ???: Костыль, но работает
+// Рекурсивная функция которая проверяет высоту навБара
+// и подстаривае дни недели при скролле
 - (void)headerScroll
 {
 //    DLog(@"size: %f", self.navigationController.navigationBar.frame.size.height);

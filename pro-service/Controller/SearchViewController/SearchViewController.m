@@ -19,6 +19,8 @@
     NSArray *cellArray;
     Calendar *calendar;
     NSDate *selectDate;
+    NSMutableArray *selectCategory;
+    BOOL selectFree;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -32,6 +34,8 @@
 {
     [super viewDidLoad];
     
+    selectFree = true;
+    selectCategory = [[NSMutableArray alloc] init];
     calendar = [[Calendar alloc] init];
     cellArray = @[@"Категория", @"Дата", @"Бесплатные"];
     
@@ -50,7 +54,8 @@
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:2 inSection:0];
     SearchTableViewCell *cell = (SearchTableViewCell *)[self.tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    selectFree = true;
     
     self.searchBar.text = @"";
 }
@@ -64,6 +69,7 @@
     for (int i = 0; i < keys.count; i++)
     {
         [categoryTitle addObject:dict[keys[i]]];
+        [selectCategory addObject:keys[i]];
     }
     
     NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
@@ -133,6 +139,15 @@
     
     cell.titleLabel.text = cellArray[indexPath.row];
     
+    if (indexPath.row == 2)
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
 }
 
@@ -161,6 +176,7 @@
     else if (indexPath.row == 2)
     {
         SearchTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        selectFree = !selectFree;
         
         if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
         {
@@ -184,9 +200,10 @@
     {
         EventListViewController *vc = segue.destinationViewController;
         
-        [calendar searchTag:nil date:nil free:nil text:nil];
+        [calendar searchTag:selectCategory date:selectDate free:selectFree text:self.searchBar.text];
         
         vc.navPrefersLargeTitles = true;
+        vc.arrayEvent = calendar.today;
     }
 }
 
