@@ -35,7 +35,6 @@
     event.idEvent = [dictinary[@"id"] intValue];
     event.price = [dictinary[@"price"] floatValue];
     event.title = dictinary[@"title"];
-    event.description_text = dictinary[@"description"];
     event.age_rating = dictinary[@"age_rating"];
     event.main_photo = dictinary[@"main_photo"];
     event.organization_title = dictinary[@"organization_title"];
@@ -43,7 +42,16 @@
     event.profile_surname = dictinary[@"profile_surname"];
     event.rating = [dictinary[@"rating"] floatValue];
     event.category = dictinary[@"tag"];
+    event.more_photos = dictinary[@"image"];
     
+    if (dictinary[@"description"] == (NSString *)[NSNull null])
+    {
+        event.description_text = @"";
+    }
+    else
+    {
+        event.description_text = dictinary[@"description"];
+    }
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];

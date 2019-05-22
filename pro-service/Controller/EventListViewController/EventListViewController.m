@@ -32,6 +32,11 @@
     self.navigationController.navigationBar.prefersLargeTitles = !self.navPrefersLargeTitles;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.prefersLargeTitles = !self.navPrefersLargeTitles;
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return self.arrayEvent.count;
@@ -56,6 +61,11 @@
     cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"selectEvent" sender:nil];
 }
 
 @end

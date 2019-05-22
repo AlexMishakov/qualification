@@ -11,12 +11,14 @@
 #import "MainCollectionViewCell.h"
 #import "Calendar.h"
 #import "Event.h"
+#import "EventViewController.h"
 
 @interface MainViewController ()
 {
     CGFloat tabelHeaderViewHeight;
     UIView *sectionSeparator;
     Calendar *calendar;
+    NSInteger selectRow;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewSectionTopRadius;
@@ -55,6 +57,11 @@
     calendar = [[Calendar alloc] init];
     [calendar loadToday];
 }
+
+//- (void)viewDidAppear:(BOOL)animated
+//{
+//    self.navigationController.navigationBar.hidden = true;
+//}
 
 // MARK: TableView
 
@@ -107,6 +114,12 @@
     [view addSubview:sectionSeparator];
     
     return view;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectRow = indexPath.row;
+    [self performSegueWithIdentifier:@"mainSelectEvent" sender:nil];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
@@ -168,6 +181,15 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     return CGSizeMake(self.view.frame.size.width-32-50, 150);
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"mainSelectEvent"])
+    {
+        EventViewController *vc = segue.destinationViewController;
+        vc.event = calendar.today[selectRow];
+    }
 }
 
 @end

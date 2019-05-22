@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="FooterEventTableViewCell" rowHeight="250" id="KGk-i7-Jjw" customClass="FooterEventTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="249.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIT-qf-3W8">
+                        <rect key="frame" x="16" y="11" width="288" height="58"/>
+                        <color key="backgroundColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="58" id="8Bo-Fh-SGZ"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <state key="normal" title="Пойду">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="13"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Organization" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sg-AQ-9al">
+                        <rect key="frame" x="16" y="93" width="288" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fgr-s1-rZb">
+                        <rect key="frame" x="0.0" y="121.5" width="320" height="120"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="120" id="N2V-UU-Zoq"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="Fgr-s1-rZb" secondAttribute="bottom" constant="8" id="CiM-TI-fHd"/>
+                    <constraint firstItem="OIT-qf-3W8" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="Dnd-du-G8s"/>
+                    <constraint firstAttribute="trailing" secondItem="Fgr-s1-rZb" secondAttribute="trailing" id="EZe-jC-g7V"/>
+                    <constraint firstItem="Fgr-s1-rZb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HhV-9U-rLA"/>
+                    <constraint firstItem="OIT-qf-3W8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="d3y-91-Xl3"/>
+                    <constraint firstItem="OIT-qf-3W8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="f05-0S-pae"/>
+                    <constraint firstItem="1sg-AQ-9al" firstAttribute="top" secondItem="OIT-qf-3W8" secondAttribute="bottom" constant="24" id="gsV-G6-dZ5"/>
+                    <constraint firstItem="1sg-AQ-9al" firstAttribute="trailing" secondItem="H2p-sc-9uM" secondAttribute="trailingMargin" id="hXe-1z-25T"/>
+                    <constraint firstItem="1sg-AQ-9al" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="k5H-PG-Dyg"/>
+                    <constraint firstItem="Fgr-s1-rZb" firstAttribute="top" secondItem="1sg-AQ-9al" secondAttribute="bottom" constant="8" id="phQ-HE-cm1"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="organizationLabel" destination="1sg-AQ-9al" id="fhE-sS-Fkd"/>
+            </connections>
+            <point key="canvasLocation" x="137.59999999999999" y="247.82608695652175"/>
+        </tableViewCell>
+    </objects>
+</document>
