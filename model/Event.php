@@ -10,7 +10,10 @@
 			$Today = $req['today'];
 			$Date = $req['date'];
 			$Free = $req['free'];
+			$Text = $req['text'];
 			if (!empty($req['tag'])) $idCategory = explode(",", $req['tag']);
+			
+			$dateString = date('Y-m-d H:i:s');
 			
 			if (!empty($idEvent))
 			{
@@ -23,8 +26,11 @@
 				for ($i = 0; $i < count($idCategory); $i++)
 				{
 					$idTag = $idCategory[$i];
-					$sqlTagTransfer .= "create_event_tagscommunity.id_tag_id = $idTag";
-					if ($i != count($idCategory)-1) $sqlTagTransfer .= " OR ";
+					if ($idTag != 0)
+					{
+						$sqlTagTransfer .= "create_event_tagscommunity.id_tag_id = $idTag";
+						if ($i != count($idCategory)-1) $sqlTagTransfer .= " OR ";
+					}
 				}
 				
 				$sqlTag .= " ( $sqlTagTransfer ) AND";
@@ -33,7 +39,6 @@
 			
 			if ($Today == true)
 			{
-				$dateString = date('Y-m-d H:i:s');
 				$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
 				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 			}
@@ -47,9 +52,16 @@
 				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 			}
 			
-			if ($Free == true)
+			if ($Free == false)
 			{
-				$sqlFree = "create_event_event.price = 0 AND";
+				$sqlFree = "NOT (create_event_event.price = 0) AND";
+			}
+			
+			if ($Text != '')
+			{
+				// TODO: сделать более полноценный поиск
+				//$sqlSerach = "MATCH (create_event_event.title, create_event_event.description) AGAINST ('$Text') AND";
+				$sqlSerach = "(create_event_event.title LIKE '%$Text%' OR create_event_event.description LIKE '%$Text%') AND";
 			}
 			
 			$sql = "SELECT
@@ -79,9 +91,11 @@
 						$sqlDate
 						$sqlTag
 						$sqlFree
+						$sqlSerach
 						create_event_agerating.id = create_event_event.age_rating_id AND
 						create_event_event.status = 1 AND
-						create_event_organization.id = create_event_event.id_venue_id
+						create_event_organization.id = create_event_event.id_venue_id AND
+						create_event_event.created_date >= '$dateString'
 					ORDER BY create_event_event.created_date LIMIT 50";
 			$result = mysqli_query($this->conn, $sql);
 			
@@ -91,7 +105,8 @@
 				{
 					$idEventRow = $row['id'];
 					$sql = "SELECT
-								create_event_tag.title
+								create_event_tag.title,
+								create_event_tag.id
 							FROM
 								create_event_tag,
 								create_event_tagscommunity
@@ -103,7 +118,10 @@
 					$ArrayTag = array();
 					while($rowTag = mysqli_fetch_assoc($resultTag))
 					{
-						array_push($ArrayTag, $rowTag['title']);
+						if ($rowTag['id'] != 0)
+						{
+							array_push($ArrayTag, $rowTag['title']);
+						}
 					}
 					
 					$row['tag'] = $ArrayTag;
