@@ -11,7 +11,10 @@
 			$Date = $req['date'];
 			$Free = $req['free'];
 			$Text = $req['text'];
-			if (!empty($req['tag'])) $idCategory = explode(",", $req['tag']);
+			$Tag = $req['tag'];
+			
+			if ($Tag != '') $idCategory = explode(",", $Tag);
+			if ($Free == '') $Free = true;
 			
 			$dateString = date('Y-m-d H:i:s');
 			
@@ -33,14 +36,14 @@
 					}
 				}
 				
-				$sqlTag .= " ( $sqlTagTransfer ) AND";
+				$sqlTag .= " ($sqlTagTransfer) AND";
 				$sqlTagTable = ", create_event_tagscommunity";
 			}
 			
 			if ($Today == true)
 			{
 				$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
-				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
+				$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date <= '$dateTomorrow') AND";
 			}
 			else if (!empty($Date))
 			{
@@ -60,7 +63,7 @@
 			if ($Text != '')
 			{
 				// TODO: сделать более полноценный поиск
-				//$sqlSerach = "MATCH (create_event_event.title, create_event_event.description) AGAINST ('$Text') AND";
+				// $sqlSerach = "MATCH (create_event_event.title, create_event_event.description) AGAINST ('$Text') AND";
 				$sqlSerach = "(create_event_event.title LIKE '%$Text%' OR create_event_event.description LIKE '%$Text%') AND";
 			}
 			
@@ -104,6 +107,7 @@
 				while($row = mysqli_fetch_assoc($result))
 				{
 					$idEventRow = $row['id'];
+					
 					$sql = "SELECT
 								create_event_tag.title,
 								create_event_tag.id
@@ -123,8 +127,23 @@
 							array_push($ArrayTag, $rowTag['title']);
 						}
 					}
+										
+					$sql = "SELECT
+								create_event_morephotos.image
+							FROM
+								create_event_morephotos
+							WHERE
+								create_event_morephotos.event_id = $idEventRow";
+					$resultImage = mysqli_query($this->conn, $sql);
+					
+					$ArrayImage = array();
+					while($rowImage = mysqli_fetch_assoc($resultImage))
+					{
+						array_push($ArrayImage, $rowImage['image']);
+					}
 					
 					$row['tag'] = $ArrayTag;
+					$row['image'] = $ArrayImage;
 					
 					array_push($ArrayEvents, $row);
 				}
