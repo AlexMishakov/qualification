@@ -76,6 +76,21 @@
         cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
         cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
         
+        NSString *stringUrl = [NSString stringWithFormat:@"%@%@", DOMEN, event.main_photo];
+        DLog(@"%@", stringUrl);
+        NSURL *urlImage = [NSURL URLWithString:stringUrl];
+        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:urlImage completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (data) {
+                UIImage *image = [UIImage imageWithData:data];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (cell) cell.image.image = image;
+                    });
+                }
+            }
+        }];
+        [task resume];
+        
         return cell;
     }
 }

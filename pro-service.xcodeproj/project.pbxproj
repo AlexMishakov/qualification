@@ -41,7 +41,6 @@
 		FA98C399228A3436002D49AF /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98C398228A3436002D49AF /* MainViewController.m */; };
 		FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA98C39B228A4C1C002D49AF /* MainTableViewCell.m */; };
 		FA98C39E228A4C1C002D49AF /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA98C39C228A4C1C002D49AF /* MainTableViewCell.xib */; };
-		FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */ = {isa = PBXBuildFile; fileRef = FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */; };
 		FAEBC3DA2293084400A4D033 /* DateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3D92293084400A4D033 /* DateViewController.m */; };
 		FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3DD2293649400A4D033 /* SearchCategoryViewController.m */; };
 		FAEBC3E22293776600A4D033 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEBC3E12293776600A4D033 /* Event.m */; };
@@ -132,7 +131,6 @@
 		FA98C39A228A4C1C002D49AF /* MainTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
 		FA98C39B228A4C1C002D49AF /* MainTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 		FA98C39C228A4C1C002D49AF /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
-		FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = V1Lod920Km4.png; path = ../../../../../Desktop/V1Lod920Km4.png; sourceTree = "<group>"; };
 		FAEBC3D82293084400A4D033 /* DateViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DateViewController.h; sourceTree = "<group>"; };
 		FAEBC3D92293084400A4D033 /* DateViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DateViewController.m; sourceTree = "<group>"; };
 		FAEBC3DC2293649400A4D033 /* SearchCategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchCategoryViewController.h; sourceTree = "<group>"; };
@@ -400,7 +398,6 @@
 				FA74F4AF228B260500DDF9E4 /* Controller */,
 				FA98C36B228A33C6002D49AF /* Main.storyboard */,
 				FA98C370228A33C8002D49AF /* LaunchScreen.storyboard */,
-				FA98C3A1228A4C99002D49AF /* V1Lod920Km4.png */,
 				FA98C36E228A33C8002D49AF /* Assets.xcassets */,
 				FA67DB1D228CC376001E5655 /* Supporting */,
 			);
@@ -591,7 +588,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA3EC889229605ED00D74B8C /* HeaderEventTableViewCell.xib in Resources */,
-				FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */,
 				FA3EC88F2296099E00D74B8C /* ImagesEventTableViewCell.xib in Resources */,
 				FA3EC8A722961CBF00D74B8C /* PlugEventTableViewCell.xib in Resources */,
 				FA2D94B52290F8020011D063 /* SearchTableViewCell.xib in Resources */,

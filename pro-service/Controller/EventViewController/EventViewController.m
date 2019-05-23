@@ -57,6 +57,21 @@
         cell.categoryLabel.text = [self.event.category componentsJoinedByString:@", "];
         cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\n\nВозростное ограничение: %@+", self.event.description_text, self.event.age_rating];
         
+        NSString *stringUrl = [NSString stringWithFormat:@"%@%@", DOMEN, self.event.main_photo];
+        DLog(@"%@", stringUrl);
+        NSURL *urlImage = [NSURL URLWithString:stringUrl];
+        NSURLSessionTask *task = [[NSURLSession sharedSession] dataTaskWithURL:urlImage completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+            if (data) {
+                UIImage *image = [UIImage imageWithData:data];
+                if (image) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        if (cell) cell.imageImageView.image = image;
+                    });
+                }
+            }
+        }];
+        [task resume];
+        
         
         return cell;
     }

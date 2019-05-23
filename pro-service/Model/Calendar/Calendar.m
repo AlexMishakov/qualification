@@ -23,7 +23,7 @@
 
 - (void)loadToday
 {
-    NSString *StrUrl = @"/event.get?today=true";
+    NSString *StrUrl = @"/api/event.get?today=true";
     StrUrl = [DOMEN stringByAppendingString: StrUrl];
     DLog(@"StrUrl: %@", StrUrl);
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];
@@ -61,7 +61,7 @@
 
 - (void)loadAllDay
 {
-    NSString *StrUrl = @"/event.getAllDate";
+    NSString *StrUrl = @"/api/event.getAllDate";
     StrUrl = [DOMEN stringByAppendingString: StrUrl];
     DLog(@"StrUrl: %@", StrUrl);
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];
@@ -87,7 +87,7 @@
 
 - (void)loadPoster
 {
-    NSString *StrUrl = @"/event.get?poster=true";
+    NSString *StrUrl = @"/api/event.get?poster=true";
     StrUrl = [DOMEN stringByAppendingString: StrUrl];
     DLog(@"StrUrl: %@", StrUrl);
     NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];
@@ -134,7 +134,7 @@
 
 - (void)searchTag:(nullable NSArray *)tags date:(nullable NSDate *)date free:(BOOL)free text:(nullable NSString *)text
 {
-    NSString *StrUrl = @"/event.get?";
+    NSString *StrUrl = @"/api/event.get?";
     NSString *freeString = free ? @"true" : @"false";
     StrUrl = [NSString stringWithFormat:@"%@free=%@", StrUrl, freeString];
     

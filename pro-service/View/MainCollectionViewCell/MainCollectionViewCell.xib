@@ -22,8 +22,9 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CEU-RI-u6X">
                         <rect key="frame" x="0.0" y="0.0" width="309" height="115"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="V1Lod920Km4.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-et-QR4">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xcw-et-QR4">
                                 <rect key="frame" x="0.0" y="0.0" width="309" height="115"/>
+                                <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -64,7 +65,4 @@
             <point key="canvasLocation" x="240.80000000000001" y="160.11994002998503"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="V1Lod920Km4.png" width="531" height="219"/>
-    </resources>
 </document>

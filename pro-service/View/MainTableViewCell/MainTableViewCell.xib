@@ -25,8 +25,9 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P7M-1H-uQd">
                                 <rect key="frame" x="0.0" y="0.0" width="296" height="300.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="V1Lod920Km4.png" translatesAutoresizingMaskIntoConstraints="NO" id="CDR-44-5Ay">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CDR-44-5Ay">
                                         <rect key="frame" x="0.0" y="0.0" width="296" height="215"/>
+                                        <color key="backgroundColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="215" id="Baf-QD-yWS"/>
                                         </constraints>
@@ -99,7 +100,4 @@
             <point key="canvasLocation" x="705.60000000000002" y="178.56071964017991"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="V1Lod920Km4.png" width="531" height="219"/>
-    </resources>
 </document>
