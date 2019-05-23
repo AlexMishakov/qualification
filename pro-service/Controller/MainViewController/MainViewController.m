@@ -18,7 +18,7 @@
     CGFloat tabelHeaderViewHeight;
     UIView *sectionSeparator;
     Calendar *calendar;
-    NSInteger selectRow;
+    Event *selectEvent;
 }
 
 @property (weak, nonatomic) IBOutlet UIView *viewSectionTopRadius;
@@ -56,6 +56,7 @@
     
     calendar = [[Calendar alloc] init];
     [calendar loadToday];
+    [calendar loadPoster];
 }
 
 //- (void)viewDidAppear:(BOOL)animated
@@ -118,7 +119,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectRow = indexPath.row;
+    selectEvent = calendar.today[indexPath.row];
     [self performSegueWithIdentifier:@"mainSelectEvent" sender:nil];
 }
 
@@ -166,14 +167,15 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 5;
+    return calendar.poster.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     MainCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MainCollectionViewCell" forIndexPath:indexPath];
     
-    
+    Event *event = calendar.poster[indexPath.row];
+    cell.titleLabel.text = event.title;
     
     return cell;
 }
@@ -183,12 +185,18 @@
     return CGSizeMake(self.view.frame.size.width-32-50, 150);
 }
 
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    selectEvent = calendar.poster[indexPath.row];
+    [self performSegueWithIdentifier:@"mainSelectEvent" sender:nil];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"mainSelectEvent"])
     {
         EventViewController *vc = segue.destinationViewController;
-        vc.event = calendar.today[selectRow];
+        vc.event = selectEvent;
     }
 }
 

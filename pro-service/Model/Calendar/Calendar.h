@@ -14,10 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSArray *today;
 @property (nonatomic) NSArray *allDay;
+@property (nonatomic) NSArray *poster;
 
 - (void)loadToday;
-- (void)loadFromDate:(NSDate *)date;
 - (void)loadAllDay;
+- (void)loadPoster;
+
+- (void)loadFromDate:(NSDate *)date;
 - (void)loadTag:(NSArray *)tags;
 - (void)searchTag:(nullable NSArray *)tags date:(nullable NSDate *)date free:(BOOL)free text:(nullable NSString *)text;
 

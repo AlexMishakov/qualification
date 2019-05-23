@@ -57,6 +57,8 @@
             <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
             <size key="customSize" width="309" height="151"/>
             <connections>
+                <outlet property="imageImageView" destination="Xcw-et-QR4" id="Eap-5O-ECK"/>
+                <outlet property="titleLabel" destination="FKI-D8-RQj" id="bij-lS-PxM"/>
                 <outlet property="wrapImage" destination="CEU-RI-u6X" id="AUF-SV-XSh"/>
             </connections>
             <point key="canvasLocation" x="240.80000000000001" y="160.11994002998503"/>

@@ -36,6 +36,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

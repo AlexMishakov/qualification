@@ -85,6 +85,43 @@
     }
 }
 
+- (void)loadPoster
+{
+    NSString *StrUrl = @"/event.get?poster=true";
+    StrUrl = [DOMEN stringByAppendingString: StrUrl];
+    DLog(@"StrUrl: %@", StrUrl);
+    NSData *data = [NSData dataWithContentsOfURL:[NSURL URLWithString:StrUrl]];
+    NSError *error = nil;
+    NSDictionary *dictionary = nil;
+    
+    if (data != nil)
+    {
+        dictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error];
+    }
+    
+    if ([dictionary[@"error"] intValue] == 910 && dictionary != nil)
+    {
+        DLog(@"events: %@", dictionary[@"events"]);
+        NSArray *arrayEventResponse = dictionary[@"events"];
+        NSMutableArray *arrayEvent = [[NSMutableArray alloc] init];
+        
+        for (int i = 0; i < arrayEventResponse.count; i++)
+        {
+            NSDictionary *row = arrayEventResponse[i];
+            Event *event = [[Event alloc] init];
+            event = [event dictinaryToEvent:row];
+            [arrayEvent addObject:event];
+        }
+        
+        self.poster = [arrayEvent copy];
+        DLog(@"self.today: %@", self.poster);
+    }
+    else
+    {
+        self.poster = [[NSArray alloc] init];
+    }
+}
+
 - (void)loadFromDate:(NSDate *)date
 {
     [self searchTag:nil date:date free:nil text:nil];

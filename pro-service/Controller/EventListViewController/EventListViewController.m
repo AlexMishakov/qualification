@@ -10,10 +10,11 @@
 #import "MainTableViewCell.h"
 #import "Calendar.h"
 #import "Event.h"
+#import "EventViewController.h"
 
 @interface EventListViewController ()
 {
-//    Calendar *calendar;
+    NSInteger selectRow;
 }
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -65,7 +66,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    selectRow = indexPath.row;
     [self performSegueWithIdentifier:@"selectEvent" sender:nil];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"selectEvent"])
+    {
+        EventViewController *vc = segue.destinationViewController;
+        vc.event = self.arrayEvent[selectRow];
+    }
 }
 
 @end
