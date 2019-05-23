@@ -162,8 +162,12 @@
         dateFormatter.dateFormat = @"dd MMMM yyyy";
         [calendarModel loadFromDate:selectDate];
         
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        dateFormat.dateFormat = @"HH:mm";
+        
         vc.navTitle = [dateFormatter stringFromDate:selectDate];
         vc.arrayEvent = calendarModel.today;
+        vc.dateFormat = dateFormat;
     }
 }
 

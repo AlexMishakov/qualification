@@ -32,6 +32,13 @@
     
     [self.navigationController.navigationBar setValue:@(NO) forKeyPath:@"hidesShadow"];
     self.navigationController.navigationBar.prefersLargeTitles = !self.navPrefersLargeTitles;
+    
+    if (self.dateFormat == nil)
+    {
+        DLog(@"etst");
+        self.dateFormat = [[NSDateFormatter alloc] init];
+        self.dateFormat.dateFormat = @"dd MMMM yyyy в HH:mm";
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -68,12 +75,10 @@
             cell = [nib objectAtIndex:0];
         }
         
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"HH:mm"];
         
         Event *event = self.arrayEvent[indexPath.row];
         cell.titleLabel.text = event.title;
-        cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
+        cell.dateLabel.text = [self.dateFormat stringFromDate:event.created_date];
         cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
         
         NSString *stringUrl = [NSString stringWithFormat:@"%@%@", DOMEN, event.main_photo];

@@ -50,7 +50,7 @@
         }
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        dateFormatter.dateFormat = @"dd MMMM yyyy";
+        dateFormatter.dateFormat = @"dd MMMM yyyy в HH:mm";
         
         cell.dateLabel.text = [dateFormatter stringFromDate:self.event.created_date];
         cell.titleLabel.text = self.event.title;
