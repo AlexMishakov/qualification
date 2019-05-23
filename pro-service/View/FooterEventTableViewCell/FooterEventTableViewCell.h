@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FooterEventTableViewCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UILabel *organizationLabel;
+@property (weak, nonatomic) IBOutlet UILabel *organaztionLabel;
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+- (void)setToMapSubTitle:(NSString *)subTitle letitude:(double)letitude longitude:(double)longitude;
 
 @end
 

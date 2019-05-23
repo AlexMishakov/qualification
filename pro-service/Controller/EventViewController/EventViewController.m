@@ -102,7 +102,8 @@
                 cell = [nib objectAtIndex:0];
             }
             
-            cell.organizationLabel.text = self.event.organization_title;
+            cell.organaztionLabel.text = self.event.organization_title;
+            [cell setToMapSubTitle:@"ул. Нефтяников, 2А, Муравленко" letitude:55.781516 longitude:37.710277];
             
             return cell;
         }
@@ -117,7 +118,8 @@
             cell = [nib objectAtIndex:0];
         }
         
-        cell.organizationLabel.text = self.event.organization_title;
+        cell.organaztionLabel.text = self.event.organization_title;
+        [cell setToMapSubTitle:@"ул. Нефтяников, 2А, Муравленко" letitude:55.781516 longitude:37.710277];
         
         return cell;
     }

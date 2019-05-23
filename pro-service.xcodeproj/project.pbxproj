@@ -14,7 +14,6 @@
 		FA2D94B42290F8020011D063 /* SearchTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2D94B22290F8020011D063 /* SearchTableViewCell.m */; };
 		FA2D94B52290F8020011D063 /* SearchTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA2D94B32290F8020011D063 /* SearchTableViewCell.xib */; };
 		FA3EC880229600D700D74B8C /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC87F229600D700D74B8C /* EventViewController.m */; };
-		FA3EC8842296011800D74B8C /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC8822296011800D74B8C /* CalendarViewController.m */; };
 		FA3EC888229605ED00D74B8C /* HeaderEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC886229605ED00D74B8C /* HeaderEventTableViewCell.m */; };
 		FA3EC889229605ED00D74B8C /* HeaderEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC887229605ED00D74B8C /* HeaderEventTableViewCell.xib */; };
 		FA3EC88E2296099E00D74B8C /* ImagesEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC88C2296099E00D74B8C /* ImagesEventTableViewCell.m */; };
@@ -25,6 +24,7 @@
 		FA3EC89B2296131900D74B8C /* ImageEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC8992296131900D74B8C /* ImageEventCollectionViewCell.xib */; };
 		FA3EC8A622961CBF00D74B8C /* PlugEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC8A422961CBF00D74B8C /* PlugEventTableViewCell.m */; };
 		FA3EC8A722961CBF00D74B8C /* PlugEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC8A522961CBF00D74B8C /* PlugEventTableViewCell.xib */; };
+		FA553D0C2296DFBC00F6912F /* CalendarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA553D0B2296DFBC00F6912F /* CalendarViewController.m */; };
 		FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */; };
 		FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */; };
 		FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B2228B263B00DDF9E4 /* CategoryViewController.m */; };
@@ -83,8 +83,6 @@
 		FA2D94B32290F8020011D063 /* SearchTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTableViewCell.xib; sourceTree = "<group>"; };
 		FA3EC87E229600D700D74B8C /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		FA3EC87F229600D700D74B8C /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		FA3EC8822296011800D74B8C /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalendarViewController.m; path = "pro-service/Controller/CalendarViewController/CalendarViewController.m"; sourceTree = SOURCE_ROOT; };
-		FA3EC8832296011800D74B8C /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalendarViewController.h; path = "pro-service/Controller/CalendarViewController/CalendarViewController.h"; sourceTree = SOURCE_ROOT; };
 		FA3EC885229605ED00D74B8C /* HeaderEventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeaderEventTableViewCell.h; sourceTree = "<group>"; };
 		FA3EC886229605ED00D74B8C /* HeaderEventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeaderEventTableViewCell.m; sourceTree = "<group>"; };
 		FA3EC887229605ED00D74B8C /* HeaderEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderEventTableViewCell.xib; sourceTree = "<group>"; };
@@ -100,6 +98,8 @@
 		FA3EC8A322961CBF00D74B8C /* PlugEventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlugEventTableViewCell.h; sourceTree = "<group>"; };
 		FA3EC8A422961CBF00D74B8C /* PlugEventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlugEventTableViewCell.m; sourceTree = "<group>"; };
 		FA3EC8A522961CBF00D74B8C /* PlugEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlugEventTableViewCell.xib; sourceTree = "<group>"; };
+		FA553D0A2296DFBB00F6912F /* CalendarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CalendarViewController.h; sourceTree = "<group>"; };
+		FA553D0B2296DFBC00F6912F /* CalendarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CalendarViewController.m; sourceTree = "<group>"; };
 		FA67DB1C228CC365001E5655 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		FA67DB1E228CC472001E5655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FA74F4A7228B208200DDF9E4 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
@@ -257,6 +257,15 @@
 			path = PlugEventTableViewCell;
 			sourceTree = "<group>";
 		};
+		FA553D0D2296DFC100F6912F /* CalendarViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FA553D0A2296DFBB00F6912F /* CalendarViewController.h */,
+				FA553D0B2296DFBC00F6912F /* CalendarViewController.m */,
+			);
+			path = CalendarViewController;
+			sourceTree = "<group>";
+		};
 		FA67DB1D228CC376001E5655 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,16 +275,6 @@
 				FA98C374228A33C8002D49AF /* main.m */,
 			);
 			path = Supporting;
-			sourceTree = "<group>";
-		};
-		FA67DB22228CCA02001E5655 /* CalendarViewController */ = {
-			isa = PBXGroup;
-			children = (
-				FA3EC8832296011800D74B8C /* CalendarViewController.h */,
-				FA3EC8822296011800D74B8C /* CalendarViewController.m */,
-			);
-			name = CalendarViewController;
-			path = "New Group";
 			sourceTree = "<group>";
 		};
 		FA74F4AC228B25ED00DDF9E4 /* MainCollectionViewCell */ = {
@@ -318,7 +317,7 @@
 			isa = PBXGroup;
 			children = (
 				FA74F4B0228B261200DDF9E4 /* MainViewController */,
-				FA67DB22228CCA02001E5655 /* CalendarViewController */,
+				FA553D0D2296DFC100F6912F /* CalendarViewController */,
 				FA74F4B4228B263F00DDF9E4 /* CategoryViewController */,
 				FA2D946D2290C7EE0011D063 /* SearchViewController */,
 				FAEBC3DF2293649900A4D033 /* SearchCategoryViewController */,
@@ -713,10 +712,10 @@
 				FA2D946C2290C7EB0011D063 /* SearchViewController.m in Sources */,
 				FAEBC3E72293795A00A4D033 /* Calendar.m in Sources */,
 				FA74F4B8228B274200DDF9E4 /* CategoryTableViewCell.m in Sources */,
+				FA553D0C2296DFBC00F6912F /* CalendarViewController.m in Sources */,
 				FA98C39D228A4C1C002D49AF /* MainTableViewCell.m in Sources */,
 				FA8BBD9622945CF500DB52BA /* EventListViewController.m in Sources */,
 				FAEBC3DE2293649400A4D033 /* SearchCategoryViewController.m in Sources */,
-				FA3EC8842296011800D74B8C /* CalendarViewController.m in Sources */,
 				FA3EC88E2296099E00D74B8C /* ImagesEventTableViewCell.m in Sources */,
 				FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */,
 				FA98C399228A3436002D49AF /* MainViewController.m in Sources */,

@@ -124,12 +124,12 @@
 
 - (void)loadFromDate:(NSDate *)date
 {
-    [self searchTag:nil date:date free:nil text:nil];
+    [self searchTag:nil date:date free:true text:nil];
 }
 
 - (void)loadTag:(NSArray *)tags
 {
-    [self searchTag:tags date:nil free:nil text:nil];
+    [self searchTag:tags date:nil free:true text:nil];
 }
 
 - (void)searchTag:(nullable NSArray *)tags date:(nullable NSDate *)date free:(BOOL)free text:(nullable NSString *)text
