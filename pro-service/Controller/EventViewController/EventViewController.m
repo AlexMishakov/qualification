@@ -55,7 +55,7 @@
         cell.dateLabel.text = [dateFormatter stringFromDate:self.event.created_date];
         cell.titleLabel.text = self.event.title;
         cell.categoryLabel.text = [self.event.category componentsJoinedByString:@", "];
-        cell.descriptionLabel.text = self.event.description_text;
+        cell.descriptionLabel.text = [NSString stringWithFormat:@"%@\n\nВозростное ограничение: %@+", self.event.description_text, self.event.age_rating];
         
         
         return cell;
