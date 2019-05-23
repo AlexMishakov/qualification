@@ -64,7 +64,11 @@
     self.dateFormatter.dateFormat = @"yyyy-MM-dd";
     
     self.minimumDate = [NSDate date];
-    self.maximumDate = [self.dateFormatter dateFromString:calendarModel.allDay[calendarModel.allDay.count-1]];
+    self.maximumDate = [NSDate date];
+    if (calendarModel.allDay.count != 0)
+    {
+        self.maximumDate = [self.dateFormatter dateFromString:calendarModel.allDay[calendarModel.allDay.count-1]];
+    }
     
     navHeight = self.navigationController.navigationBar.frame.size.height;
     [self headerScroll];
@@ -73,6 +77,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController.navigationBar setValue:@(YES) forKeyPath:@"hidesShadow"];
+    self.navigationController.navigationBar.prefersLargeTitles = true;
 }
 
 // MARK: FSCalendarDataSource
