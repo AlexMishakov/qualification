@@ -1,0 +1,20 @@
+PODS:
+  - "FSCalendar+Persian (2.9.2)"
+  - SPStorkController (1.6.5)
+
+DEPENDENCIES:
+  - "FSCalendar+Persian"
+  - SPStorkController
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - "FSCalendar+Persian"
+    - SPStorkController
+
+SPEC CHECKSUMS:
+  "FSCalendar+Persian": fc5b323015db8a93c48c61b9c0c59f3a705d8297
+  SPStorkController: f74a60dbcd3c35180c996688873f6eadac839642
+
+PODFILE CHECKSUM: 388c0f1a2c275c2cee70116388b673441083cdae
+
+COCOAPODS: 1.5.2
