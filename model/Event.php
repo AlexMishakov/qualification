@@ -90,6 +90,8 @@
 						create_event_agerating.age_rating,
 						
 						create_event_organization.title as organization_title,
+						create_event_organization.address as organization_address,
+						create_event_organization.geolocation as organization_geolocation,
 						
 						auth_user.first_name as profile_name,
 						auth_user.last_name as profile_surname
@@ -154,6 +156,13 @@
 					
 					$row['tag'] = $ArrayTag;
 					$row['image'] = $ArrayImage;
+					
+					$geoArray = str_replace(" ","", $row['organization_geolocation']);
+					$geoArray = explode(",", $geoArray);
+					$arraTest = array();
+					$arraTest['latitude'] = $geoArray[0];
+					$arraTest['longitude'] = $geoArray[1];
+					$row['organization_geolocation'] = $arraTest;
 					
 					array_push($ArrayEvents, $row);
 				}
