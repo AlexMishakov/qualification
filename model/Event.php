@@ -15,7 +15,7 @@
 			$Poster =  $req['poster'];
 			
 			if ($Tag != '') $idCategory = explode(",", $Tag);
-			if ($Free == '') $Free = true;
+			if ($Free == '') $Free = 'true';
 			if ($Poster == '') $Poster = false;
 			
 			$dateString = date('Y-m-d H:i:s');
@@ -49,7 +49,7 @@
 					$sqlTagTable = ", create_event_tagscommunity";
 				}
 				
-				if ($Today == true)
+				if ($Today == 'true')
 				{
 					$dateTomorrow = date('Y-m-d 00:00:00', strtotime("+1 day"));
 					$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date <= '$dateTomorrow') AND";
@@ -64,7 +64,7 @@
 					$sqlDate = "(create_event_event.created_date >= '$dateString' AND create_event_event.created_date < '$dateTomorrow') AND";
 				}
 				
-				if ($Free == false)
+				if ($Free == 'false')
 				{
 					$sqlFree = "NOT (create_event_event.price = 0) AND";
 				}
