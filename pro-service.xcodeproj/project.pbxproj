@@ -23,6 +23,8 @@
 		FA3EC89522960B2E00D74B8C /* FooterEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC89322960B2E00D74B8C /* FooterEventTableViewCell.xib */; };
 		FA3EC89A2296131900D74B8C /* ImageEventCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC8982296131900D74B8C /* ImageEventCollectionViewCell.m */; };
 		FA3EC89B2296131900D74B8C /* ImageEventCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC8992296131900D74B8C /* ImageEventCollectionViewCell.xib */; };
+		FA3EC8A622961CBF00D74B8C /* PlugEventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EC8A422961CBF00D74B8C /* PlugEventTableViewCell.m */; };
+		FA3EC8A722961CBF00D74B8C /* PlugEventTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA3EC8A522961CBF00D74B8C /* PlugEventTableViewCell.xib */; };
 		FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4A8228B208200DDF9E4 /* MainCollectionViewCell.m */; };
 		FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA74F4A9228B208200DDF9E4 /* MainCollectionViewCell.xib */; };
 		FA74F4B3228B263B00DDF9E4 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA74F4B2228B263B00DDF9E4 /* CategoryViewController.m */; };
@@ -96,6 +98,9 @@
 		FA3EC8972296131900D74B8C /* ImageEventCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ImageEventCollectionViewCell.h; sourceTree = "<group>"; };
 		FA3EC8982296131900D74B8C /* ImageEventCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ImageEventCollectionViewCell.m; sourceTree = "<group>"; };
 		FA3EC8992296131900D74B8C /* ImageEventCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageEventCollectionViewCell.xib; sourceTree = "<group>"; };
+		FA3EC8A322961CBF00D74B8C /* PlugEventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlugEventTableViewCell.h; sourceTree = "<group>"; };
+		FA3EC8A422961CBF00D74B8C /* PlugEventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PlugEventTableViewCell.m; sourceTree = "<group>"; };
+		FA3EC8A522961CBF00D74B8C /* PlugEventTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PlugEventTableViewCell.xib; sourceTree = "<group>"; };
 		FA67DB1C228CC365001E5655 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		FA67DB1E228CC472001E5655 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FA74F4A7228B208200DDF9E4 /* MainCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainCollectionViewCell.h; sourceTree = "<group>"; };
@@ -244,6 +249,16 @@
 			path = ImageEventCollectionViewCell;
 			sourceTree = "<group>";
 		};
+		FA3EC8A822961CC300D74B8C /* PlugEventTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				FA3EC8A322961CBF00D74B8C /* PlugEventTableViewCell.h */,
+				FA3EC8A422961CBF00D74B8C /* PlugEventTableViewCell.m */,
+				FA3EC8A522961CBF00D74B8C /* PlugEventTableViewCell.xib */,
+			);
+			path = PlugEventTableViewCell;
+			sourceTree = "<group>";
+		};
 		FA67DB1D228CC376001E5655 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +311,7 @@
 				FA3EC890229609A100D74B8C /* ImagesEventTableViewCell */,
 				FA3EC89622960B3100D74B8C /* FooterEventTableViewCell */,
 				FA3EC89C2296131C00D74B8C /* ImageEventCollectionViewCell */,
+				FA3EC8A822961CC300D74B8C /* PlugEventTableViewCell */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -577,6 +593,7 @@
 				FA3EC889229605ED00D74B8C /* HeaderEventTableViewCell.xib in Resources */,
 				FA98C3A2228A4C99002D49AF /* V1Lod920Km4.png in Resources */,
 				FA3EC88F2296099E00D74B8C /* ImagesEventTableViewCell.xib in Resources */,
+				FA3EC8A722961CBF00D74B8C /* PlugEventTableViewCell.xib in Resources */,
 				FA2D94B52290F8020011D063 /* SearchTableViewCell.xib in Resources */,
 				FA74F4B9228B274200DDF9E4 /* CategoryTableViewCell.xib in Resources */,
 				FA74F4AB228B208200DDF9E4 /* MainCollectionViewCell.xib in Resources */,
@@ -693,6 +710,7 @@
 				FA3EC89422960B2E00D74B8C /* FooterEventTableViewCell.m in Sources */,
 				FAEBC3DA2293084400A4D033 /* DateViewController.m in Sources */,
 				FA3EC89A2296131900D74B8C /* ImageEventCollectionViewCell.m in Sources */,
+				FA3EC8A622961CBF00D74B8C /* PlugEventTableViewCell.m in Sources */,
 				FAEBC3E22293776600A4D033 /* Event.m in Sources */,
 				FA98C367228A33C6002D49AF /* AppDelegate.m in Sources */,
 				FA74F4AA228B208200DDF9E4 /* MainCollectionViewCell.m in Sources */,

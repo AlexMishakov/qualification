@@ -99,12 +99,24 @@
                                                         <outlet property="delegate" destination="miT-9t-wDX" id="agX-4L-edi"/>
                                                     </connections>
                                                 </collectionView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Пока тут ничего нету, но скоро обязательно появится." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D3g-7g-c3d">
+                                                    <rect key="frame" x="16" y="65" width="343" height="150"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="150" id="oIg-RD-Uer"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
+                                                <constraint firstItem="D3g-7g-c3d" firstAttribute="leading" secondItem="NMl-ux-elg" secondAttribute="leading" constant="16" id="5PW-6k-HVV"/>
+                                                <constraint firstItem="D3g-7g-c3d" firstAttribute="top" secondItem="4hQ-vV-0QM" secondAttribute="bottom" constant="16" id="95P-fU-rW9"/>
                                                 <constraint firstAttribute="trailing" secondItem="4hQ-vV-0QM" secondAttribute="trailing" constant="16" id="PIE-pF-pKW"/>
                                                 <constraint firstItem="LTj-hS-dlk" firstAttribute="top" secondItem="4hQ-vV-0QM" secondAttribute="bottom" constant="16" id="YWl-N5-yCL"/>
                                                 <constraint firstItem="4hQ-vV-0QM" firstAttribute="top" secondItem="NMl-ux-elg" secondAttribute="top" constant="8" id="bJK-ly-Akf"/>
+                                                <constraint firstAttribute="trailing" secondItem="D3g-7g-c3d" secondAttribute="trailing" constant="16" id="esE-Jp-n4z"/>
                                                 <constraint firstItem="4hQ-vV-0QM" firstAttribute="leading" secondItem="NMl-ux-elg" secondAttribute="leading" constant="16" id="ls0-Fo-OOB"/>
                                                 <constraint firstAttribute="trailing" secondItem="LTj-hS-dlk" secondAttribute="trailing" id="rYT-lY-6zz"/>
                                                 <constraint firstItem="LTj-hS-dlk" firstAttribute="leading" secondItem="NMl-ux-elg" secondAttribute="leading" id="vzR-hU-dJO"/>
@@ -150,6 +162,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionNew" destination="LTj-hS-dlk" id="SZL-AT-K98"/>
+                        <outlet property="collectionPlugLabel" destination="D3g-7g-c3d" id="E5u-rs-v8N"/>
                         <outlet property="statusViewBg" destination="BWY-Nv-Ust" id="clg-lO-IFv"/>
                         <outlet property="tabelHeaderView" destination="Mlm-3h-iYh" id="5oq-aY-fmP"/>
                         <outlet property="tabelHeaderViewContent" destination="NMl-ux-elg" id="MOl-hi-u8k"/>
@@ -419,11 +432,11 @@
             <objects>
                 <viewController id="OsV-bP-vYK" customClass="EventViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RyW-ZN-zK4">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="551"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rRd-nb-vFb">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="502"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="OsV-bP-vYK" id="4T0-YU-i6y"/>
@@ -867,7 +880,7 @@
         <image name="tag" width="21" height="22"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="MCW-BT-9gV"/>
+        <segue reference="nLP-tn-dGD"/>
         <segue reference="sVb-kU-b7Q"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="0.33725490200000002" blue="0.36078431370000003" alpha="1" colorSpace="calibratedRGB"/>

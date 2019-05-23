@@ -12,6 +12,7 @@
 #import "Calendar.h"
 #import "Event.h"
 #import "EventViewController.h"
+#import "PlugEventTableViewCell.h"
 
 @interface MainViewController ()
 {
@@ -28,6 +29,7 @@
 @property (strong, nonatomic) UILabel *tabelHeaderLabel;
 @property (weak, nonatomic) IBOutlet UIView *tabelHeaderViewContent;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionNew;
+@property (weak, nonatomic) IBOutlet UILabel *collectionPlugLabel;
 
 @end
 
@@ -57,12 +59,13 @@
     calendar = [[Calendar alloc] init];
     [calendar loadToday];
     [calendar loadPoster];
+    
+    self.collectionPlugLabel.hidden = true;
+    if (calendar.poster.count == 0)
+    {
+        self.collectionPlugLabel.hidden = false;
+    }
 }
-
-//- (void)viewDidAppear:(BOOL)animated
-//{
-//    self.navigationController.navigationBar.hidden = true;
-//}
 
 // MARK: TableView
 
@@ -73,28 +76,43 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return calendar.today.count;
+    return (calendar.today.count == 0) ? 1 : calendar.today.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"MainTableViewCell";
-    MainTableViewCell *cell = (MainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil)
+    if (calendar.today.count == 0)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+        static NSString *CellIdentifier = @"PlugEventTableViewCell";
+        PlugEventTableViewCell *cell = (PlugEventTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        return cell;
     }
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"HH:mm"];
-    
-    Event *event = calendar.today[indexPath.row];
-    cell.titleLabel.text = event.title;
-    cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
-    cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
-    
-    return cell;
+    else
+    {
+        static NSString *CellIdentifier = @"MainTableViewCell";
+        MainTableViewCell *cell = (MainTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+        if (cell == nil)
+        {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:CellIdentifier owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"HH:mm"];
+        
+        Event *event = calendar.today[indexPath.row];
+        cell.titleLabel.text = event.title;
+        cell.dateLabel.text = [dateFormat stringFromDate:event.created_date];
+        cell.catagoryLabel.text = [event.category componentsJoinedByString:@", "];
+        
+        return cell;
+    }
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -119,8 +137,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    selectEvent = calendar.today[indexPath.row];
-    [self performSegueWithIdentifier:@"mainSelectEvent" sender:nil];
+    if (calendar.today.count != 0)
+    {
+        selectEvent = calendar.today[indexPath.row];
+        [self performSegueWithIdentifier:@"mainSelectEvent" sender:nil];
+    }
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
