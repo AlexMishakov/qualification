@@ -35,19 +35,25 @@
 				$ip = ($_SERVER['REMOTE_ADDR'] ==  "::1") ? 'localhost' : $_SERVER['REMOTE_ADDR'];
 				$today = date("Y-m-d H:i:s");
 				
-				$sql = "SELECT mail FROM create_event_users WHERE mail = '$mail'";
+				$sql = "SELECT username FROM auth_user WHERE username = '$mail'";
 				$count = mysqli_num_rows(mysqli_query($this->conn, $sql));
 				
 				if ($count == 0)
 				{
-					$sql = "INSERT INTO create_event_users (name, surname, mail, password, age, status, ip, date_time) VALUES ('$name', '$surname', '$mail', '$password', '$age', 0, '$ip', '$today')";
+// 					$sql = "INSERT INTO create_event_users (name, surname, mail, password, age, status, ip, date_time) VALUES ('$name', '$surname', '$mail', '$password', '$age', 0, '$ip', '$today')";
+					$sql = "INSERT INTO auth_user (username, first_name, last_name, email, is_staff, is_active, is_superuser, password) VALUES ('$mail', '$name', '$surname', '$mail', 0, 0, 0, '$password')";
 					
 					
 					if (mysqli_query($this->conn, $sql))
 					{
 						$id = mysqli_insert_id($this->conn); // получение последнего id
+						
+						$sql = "INSERT INTO create_event_profile (age, user_id, ip) VALUES ('$age', '$id', '$ip')";
+						mysqli_query($this->conn, $sql);
+						
+						
 						$idCode = base64_encode($this->strcode("$id", HACH_CODE)); // шифрование
-						$Url = 'http://'.$_SERVER['HTTP_HOST'].'/user.activation?cod='.urlencode($idCode);
+						$Url = 'http://'.$_SERVER['HTTP_HOST'].'/api/user.activation?cod='.urlencode($idCode);
 						
 						// Подкючение класса отправки писем через стороний сервер
 						require_once ROOT_API_DIR."support/SendMailSmtpClass.php";
@@ -99,7 +105,7 @@
 			if (!empty($cod))
 			{
 				$UserID = $this->strcode(base64_decode($cod), HACH_CODE);	
-				$sql = "UPDATE create_event_users SET status=1 WHERE id=$UserID";
+				$sql = "UPDATE auth_user SET is_active=1 WHERE id=$UserID";
 				
 				if (mysqli_query($this->conn, $sql))
 				{
@@ -129,7 +135,20 @@
 			
 			if (!empty($mail) && !empty($password))
 			{
-				$sql = "SELECT mail, id FROM create_event_users WHERE mail = '$mail' AND password = '$password'";
+				$sql = "SELECT
+							auth_user.id,
+							auth_user.email,
+							auth_user.first_name,
+							auth_user.last_name,
+							create_event_profile.age
+						FROM
+							auth_user,
+							create_event_profile
+						WHERE
+							username = '$mail' AND
+							password = '$password' AND
+							is_active = 1 AND
+							create_event_profile.user_id = auth_user.id";
 				$result = mysqli_query($this->conn, $sql);
 				
 				if (mysqli_num_rows($result) == 0)
@@ -142,12 +161,16 @@
 					$UserID = $data['id'];
 					$token = md5($data['mail']).md5(rand(1000000, 9999999)); // генерация токена
 					
-					$sql = "UPDATE create_event_users SET hash_mobile='$token' WHERE id=$UserID";
+					$sql = "UPDATE create_event_profile SET hash='$token' WHERE id=$UserID";
 
 					if (mysqli_query($this->conn, $sql))
 					{
 						$Array['error'] = "910";
 						$Array['token'] = $token;
+						$Array['name'] = $data['first_name'];
+						$Array['surname'] = $data['last_name'];
+						$Array['mail'] = $data['email'];
+						$Array['age'] = $data['age'];
 					}
 					else
 					{
