@@ -1,4 +1,6 @@
 <?php
+// 	ini_set('display_errors', 1);
+	
 	require_once('support/Config.php');
 	require_once('support/SimpleRest.php');
 	require_once('support/DataBase.php');
@@ -6,6 +8,7 @@
 	$SimpleRest = new SimpleRest();
 	// Подключение к бд
 	$DB = new DataBase();
+// 	$DB->database = 'ps_main';
 	$DB->database = 'qualification';
 	$con = $DB->getConnection();
 	
