@@ -1,0 +1,48 @@
+
+/* Class = "UILabel"; text = "ВС"; ObjectID = "0l9-H6-aBf"; */
+"0l9-H6-aBf.text" = "ВС";
+
+/* Class = "UINavigationItem"; title = "Календарь"; ObjectID = "3PM-ra-mag"; */
+"3PM-ra-mag.title" = "Календарь";
+
+/* Class = "UILabel"; text = "Афиша"; ObjectID = "4hQ-vV-0QM"; */
+"4hQ-vV-0QM.text" = "Афиша";
+
+/* Class = "UITabBarItem"; title = "Профиль"; ObjectID = "5X5-ee-fdS"; */
+"5X5-ee-fdS.title" = "Профиль";
+
+/* Class = "UITabBarItem"; title = "Поиск"; ObjectID = "7Dy-61-aOT"; */
+"7Dy-61-aOT.title" = "Поиск";
+
+/* Class = "UINavigationItem"; title = "Категории"; ObjectID = "9Zz-Vr-w9S"; */
+"9Zz-Vr-w9S.title" = "Категории";
+
+/* Class = "UILabel"; text = "ПТ"; ObjectID = "Bxg-ux-5LX"; */
+"Bxg-ux-5LX.text" = "ПТ";
+
+/* Class = "UITabBarItem"; title = "Категории"; ObjectID = "DVd-v9-qzU"; */
+"DVd-v9-qzU.title" = "Категории";
+
+/* Class = "UILabel"; text = "ПН"; ObjectID = "EPX-g6-WEC"; */
+"EPX-g6-WEC.text" = "ПН";
+
+/* Class = "UILabel"; text = "ВТ"; ObjectID = "NLc-IV-gHl"; */
+"NLc-IV-gHl.text" = "ВТ";
+
+/* Class = "UINavigationItem"; title = "Поиск"; ObjectID = "NoB-Sv-YTy"; */
+"NoB-Sv-YTy.title" = "Поиск";
+
+/* Class = "UITabBarItem"; title = "Лента"; ObjectID = "YaH-v5-Crn"; */
+"YaH-v5-Crn.title" = "Лента";
+
+/* Class = "UILabel"; text = "ЧТ"; ObjectID = "b2Q-Wg-II1"; */
+"b2Q-Wg-II1.text" = "ЧТ";
+
+/* Class = "UITabBarItem"; title = "Календарь"; ObjectID = "eRf-Rt-y01"; */
+"eRf-Rt-y01.title" = "Календарь";
+
+/* Class = "UILabel"; text = "СБ"; ObjectID = "w9v-6b-qJN"; */
+"w9v-6b-qJN.text" = "СБ";
+
+/* Class = "UILabel"; text = "СР"; ObjectID = "xzR-EG-WLh"; */
+"xzR-EG-WLh.text" = "СР";
