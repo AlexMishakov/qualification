@@ -1,0 +1,7 @@
+# Подключение модуля редиректа
+Options +FollowSymlinks
+RewriteEngine on
+
+# Настройка редиректа
+RewriteRule ^(.*)\.(.*)$   MainController.php?model=$1&fun=$2 [nc,qsa]
+RewriteRule ^(.*)$   MainController.php?model=$1 [nc,qsa]
